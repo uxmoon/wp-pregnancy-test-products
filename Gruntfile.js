@@ -18,11 +18,17 @@ module.exports = function(grunt) {
     },
 
     watch: {
+
+      options: {
+        livereload: true
+      },
+
       grunt: {
-        options: {
-          reload: true
-        },
         files: ['Gruntfile.js']
+      },
+
+      php: {
+        files: '**/*.php'
       },
 
       sass: {

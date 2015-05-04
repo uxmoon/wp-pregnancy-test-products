@@ -1,0 +1,9 @@
+.site-header {
+    height: 130px;
+    background: $white url('../images/bg-body.png') top left repeat-x;
+
+    .bg {
+        background: transparent url('../images/bg-header.png') top center no-repeat;
+        padding-top: 20px;
+    }
+}

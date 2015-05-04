@@ -1,0 +1,162 @@
+// rem font size with fallback
+@function calculateRem($size) {
+    $remSize: $size / 16px;
+    @return $remSize * 1rem;
+}
+
+@mixin font-size($size) {
+    font-size: $size;
+    font-size: calculateRem($size);
+}
+
+// Usage
+//@include font-size(14px);
+
+// Text replacement
+@mixin replace-text-with-image($img, $w, $h, $inline: false) {
+    display: if( $inline, inline-block, block);
+    overflow: hidden;
+    width: $w;
+    height: $h;
+
+    text-indent: -999em;
+    background-image: url( #{$img} );
+}
+
+// Usage
+//@include replace-text-with-image('../images/logo.png', 100px, 50px, false);
+
+// Border radius
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+  border-radius: $radius;
+  background-clip: padding-box;  /* stops bg color from leaking outside the border: */
+}
+
+// Usage
+//@include border-radius(3px);
+
+// Single side border-radius
+@mixin border-top-radius($radius) {
+  -webkit-border-top-right-radius: $radius;
+  border-top-right-radius: $radius;
+   -webkit-border-top-left-radius: $radius;
+   border-top-left-radius: $radius;
+   background-clip: padding-box;
+}
+
+// Right border radius
+@mixin border-right-radius($radius) {
+  -webkit-border-bottom-right-radius: $radius;
+  border-bottom-right-radius: $radius;
+     -webkit-border-top-right-radius: $radius;
+     border-top-right-radius: $radius;
+     background-clip: padding-box;
+}
+
+// Bottom border radius
+@mixin border-bottom-radius($radius) {
+  -webkit-border-bottom-right-radius: $radius;
+  border-bottom-right-radius: $radius;
+   -webkit-border-bottom-left-radius: $radius;
+   border-bottom-left-radius: $radius;
+   background-clip: padding-box;
+}
+
+// Left border radius
+@mixin border-left-radius($radius) {
+  -webkit-border-bottom-left-radius: $radius;
+  border-bottom-left-radius: $radius;
+     -webkit-border-top-left-radius: $radius;
+     border-top-left-radius: $radius;
+     background-clip: padding-box;
+}
+
+// Visually hide an element
+%visuallyhidden {
+  margin: -1px;
+  padding: 0;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip: rect(0, 0, 0, 0);
+  position: absolute;
+}
+
+/*
+<button class="mobile-navigation-trigger">
+  <b class="visually-hidden">Open the navigation</b>
+  <img src="img/mobile-navigation-icon.svg">
+</button>
+.visually-hidden {
+  @extend %visuallyhidden;
+}
+*/
+
+// Clearfix
+%clearfix {
+  *zoom: 1;
+  &:before, &:after {
+    content: " ";
+    display: table;
+  }
+  &:after {
+    clear: both;
+  }
+}
+
+/*
+Usage
+.container-with-floated-children {
+  @extend %clearfix;
+}
+*/
+
+// Gradient
+@mixin linear-gradient($fromColor, $toColor) {
+  background-color: $toColor; /* Fallback Color */
+  background-image: -webkit-gradient(linear, left top, left bottom, from($fromColor), to($toColor)); /* Saf4+, Chrome */
+  background-image: -webkit-linear-gradient(top, $fromColor, $toColor); /* Chrome 10+, Saf5.1+, iOS 5+ */
+  background-image:    -moz-linear-gradient(top, $fromColor, $toColor); /* FF3.6 */
+  background-image:     -ms-linear-gradient(top, $fromColor, $toColor); /* IE10 */
+  background-image:      -o-linear-gradient(top, $fromColor, $toColor); /* Opera 11.10+ */
+  background-image:         linear-gradient(top, $fromColor, $toColor);
+  filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='#{$fromColor}', EndColorStr='#{$toColor}');
+}
+
+// Placeholder
+@mixin placeholder {
+  ::-webkit-input-placeholder {@content};
+  :-moz-placeholder           {@content};
+  ::-moz-placeholder          {@content};
+  :-ms-input-placeholder      {@content};
+}
+
+// box shadow
+@mixin box-shadow($top, $left, $blur, $color, $inset: false) {
+  @if $inset {
+    -webkit-box-shadow:inset $top $left $blur $color;
+    -moz-box-shadow:inset $top $left $blur $color;
+    box-shadow:inset $top $left $blur $color;
+  } @else {
+    -webkit-box-shadow: $top $left $blur $color;
+    -moz-box-shadow: $top $left $blur $color;
+    box-shadow: $top $left $blur $color;
+  }
+}
+
+$white: #FFF;
+$black: #000;
+
+// brand colors
+$jazzberry-jam  : #A50B5E; // #9F1561
+$lipstick       : #AB0563; // #BA076F
+$lily           : #C8AABF; // #D2A7BA
+$kobi           : #E79FC4; // #E1A4C1
+$melanie        : #E4C2D5; // #E1BDD0
+$hopbush        : #D06DA1; // #C870A3
+$shocking       : #E292C0; // #D99AB8
+$red-violet     : #C50275;
+$royal-heath    : #B02B78;
+$opera-mauve    : #B08EA2;

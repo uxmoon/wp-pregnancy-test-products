@@ -1,0 +1,227 @@
+/* -------------------------------------------------------------------
+ACCORDION
+------------------------------------------------------------------- */
+.accordion {
+    width:580px;
+    margin:0px auto 0;
+    padding:0 0 40px;
+    background:url('images/bg-accordion-bottom.png') bottom center no-repeat;
+}
+.accordion.top {
+    margin:0 auto;
+}
+.accordion>.item .content {
+    margin:0 0 15px;
+}
+.accordion>.item .content>h2 {
+    font-size:20px;
+    line-height:22px;
+    margin:0 0 10px;
+    font-weight:bold;
+}
+.accordion>.item .content>h3 {
+    font-size:16px;
+    line-height:20px;
+    color:#eb008b;
+    margin:0 0 16px;
+    font-weight:bold;
+}
+.accordion>.item .content table {
+    margin:0 0 14px;
+}
+.accordion>.item .content table thead th {
+    padding:5px;
+    border:1px solid #999999;
+    text-align:center;
+    background-color:#f3f3f3;
+    font-weight:bold;
+}
+.accordion>.item .content table tbody td {
+    padding:0 15px 0 0;
+    line-height:20px;
+    vertical-align:top;
+    text-align:center;
+    border:1px solid #999999;
+    width:50%;
+}
+.accordion>.item .content table.excercise-chart tbody td {
+    padding:15px 0;
+    font-size:14px;
+    line-height:20px;
+}
+.accordion>.item .content table.information-chart {
+    width:100%;
+}
+.accordion>.item .content .seal {
+    float:left;
+    margin:20px 10px 20px 0;
+}
+.accordion>.item .content>ol {
+    list-style:decimal;
+    margin:0 0 14px 20px;
+}
+.accordion>.item .content>ol>li {
+    display:list-item;
+    font-size:14px;
+    line-height:20px;
+}
+.accordion>.item .content>ol>li>strong {
+    font-weight:bold;
+}
+.accordion>.item .content>ul {
+    list-style-type:disc;
+    margin:0 0 14px 20px;
+}
+.accordion>.item .content>ul>li {
+    display:list-item;
+    font-size:14px;
+    line-height:20px;
+}
+.accordion>.item .content>ul>li>strong {
+    font-weight:bold;
+}
+.accordion>.item .content>p {
+    font-size:14px;
+    line-height:20px;
+    text-align:left;
+    margin:0 0 13px;
+}
+.accordion>.item .content>p>strong {
+    font-weight:bold;
+}
+.accordion>.item .content>p>a {
+    color:#eb008b;
+}
+.accordion>.item .content .stand-out {
+    font-weight:bold;
+    color:#eb008b;
+}
+.accordion>.item>a,.accordion>.item>.title {
+    color:#b08ea2;
+    text-align:center;
+    font-size:22px;
+    font-family:'TeXGyreAdventorBold',sans-serif;
+    text-transform:uppercase;
+    height:62px;
+    line-height:55px;
+    background:url('images/bg-accordion-item.png') 0 0;
+    display:block;
+}
+.accordion>.item>a:hover,.accordion>.item>.title:hover {
+    background-position:bottom left;
+}
+.accordion>.item.is-active>.title {
+    color:#eb008b;
+}
+.accordion1>.item>.title {
+    color:#f57fc5;
+    text-align:center;
+    font-size:22px;
+    font-family:'TeXGyreAdventorBold',sans-serif;
+    text-transform:uppercase;
+    height:62px;
+    line-height:55px;
+    background:url('images/bg-accordion-item.png') 0 0;
+    display:block;
+}
+.accordion1>.item>a:hover,.accordion>.item>.title:hover {
+    background-position:bottom left;
+}
+.accordion1>.item.is-active>.title {
+    color:#eb008b;
+}
+.accordion1 {
+    width:580px;
+    margin:0px auto 0;
+    padding:0 0 40px;
+    background:url('images/bg-accordion-bottom.png') bottom center no-repeat;
+}
+.accordion1.top {
+    margin:0 auto;
+}
+.accordion1>.item .content {
+    margin:0 0 15px;
+}
+.accordion1>.item .content>h2 {
+    font-size:20px;
+    line-height:22px;
+    margin:0 0 10px;
+    font-weight:bold;
+}
+.accordion1>.item .content>h3 {
+    font-size:16px;
+    line-height:20px;
+    color:#eb008b;
+    margin:0 0 16px;
+    font-weight:bold;
+}
+.accordion1>.item .content table {
+    margin:0 0 14px;
+}
+.accordion1>.item .content table thead th {
+    padding:5px;
+    border:1px solid #999999;
+    text-align:center;
+    background-color:#f3f3f3;
+    font-weight:bold;
+}
+.accordion1>.item .content table tbody td {
+    padding:0 15px 0 0;
+    line-height:20px;
+    vertical-align:top;
+    text-align:center;
+    border:1px solid #999999;
+    width:50%;
+}
+.accordion1>.item .content table.excercise-chart tbody td {
+    padding:15px 0;
+    font-size:14px;
+    line-height:20px;
+}
+.accordion1>.item .content table.information-chart {
+    width:100%;
+}
+.accordion1>.item .content .seal {
+    float:left;
+    margin:20px 10px 20px 0;
+}
+.accordion1>.item .content>ol {
+    list-style:decimal;
+    margin:0 0 14px 20px;
+}
+.accordion1>.item .content>ol>li {
+    display:list-item;
+    font-size:14px;
+    line-height:20px;
+}
+.accordion1>.item .content>ol>li>strong {
+    font-weight:bold;
+}
+.accordion1>.item .content>ul {
+    list-style-type:disc;
+    margin:0 0 14px 20px;
+}
+.accordion1>.item .content>ul>li {
+    display:list-item;
+    font-size:14px;
+    line-height:20px;
+}
+.accordion1>.item .content>ul>li>strong {
+    font-weight:bold;
+}
+.accordion1>.item .content>p {
+    font-size:14px;
+    line-height:20px;
+    text-align:left;
+    margin:0 0 13px;
+}
+.accordion1>.item .content>p>strong {
+    font-weight:bold;
+}
+.accordion1>.item .content>p>a {
+    color:#eb008b;
+}
+.accordion1>.item .content .stand-out {
+    font-weight:bold;
+    color:#eb008b;
+}

@@ -1,40 +1,921 @@
-@import "settings";
-@import "foundation";
+@import "base";
 
-// Or selectively include components
-// @import
-//   "foundation/components/accordion",
-//   "foundation/components/alert-boxes",
-//   "foundation/components/block-grid",
-//   "foundation/components/breadcrumbs",
-//   "foundation/components/button-groups",
-//   "foundation/components/buttons",
-//   "foundation/components/clearing",
-//   "foundation/components/dropdown",
-//   "foundation/components/dropdown-buttons",
-//   "foundation/components/flex-video",
-//   "foundation/components/forms",
-//   "foundation/components/grid",
-//   "foundation/components/inline-lists",
-//   "foundation/components/joyride",
-//   "foundation/components/keystrokes",
-//   "foundation/components/labels",
-//   "foundation/components/magellan",
-//   "foundation/components/orbit",
-//   "foundation/components/pagination",
-//   "foundation/components/panels",
-//   "foundation/components/pricing-tables",
-//   "foundation/components/progress-bars",
-//   "foundation/components/reveal",
-//   "foundation/components/side-nav",
-//   "foundation/components/split-buttons",
-//   "foundation/components/sub-nav",
-//   "foundation/components/switches",
-//   "foundation/components/tables",
-//   "foundation/components/tabs",
-//   "foundation/components/thumbs",
-//   "foundation/components/tooltips",
-//   "foundation/components/top-bar",
-//   "foundation/components/type",
-//   "foundation/components/offcanvas",
-//   "foundation/components/visibility";
+@import "mixins";
+
+@import "fonts";
+
+@import "header";
+
+@import "footer";
+
+@import "menu";
+
+@import "slider";
+
+@import "accordion";
+
+@import "form-contact";
+
+@import "names";
+
+@import "faq";
+
+@import "fancybox";
+
+body {
+    @media #{$large-up} {
+        background: transparent url('../images/bg-main.png') top center repeat-y;
+    }
+}
+
+.visually-hidden {
+    @extend %visuallyhidden;
+}
+
+.logo {
+    width: 314px;
+    height: 134px;
+    background: transparent url('../images/logo.png') 0 0 no-repeat;
+    text-indent: -9000px;
+
+    > a {
+        display: block;
+        width: 314px;
+        height: 134px;
+    }
+}
+
+.logo--footer {
+    width: 130px;
+    height: 53px;
+    background: transparent url('../images/logo-footer.png') 0 0 no-repeat;
+    text-indent: -9000px;
+
+    > a {
+        display: block;
+        width: 130px;
+        height: 53px;
+    }
+}
+
+.logo-elea {
+    width: 61px;
+    height: 29px;
+    background: transparent url('../images/logo-elea.png') 0 0 no-repeat;
+    text-indent: -9000px;
+
+    > a {
+        display: block;
+        width: 61px;
+        height: 29px;
+    }
+}
+
+/*
+CONTENT
+*/
+#main>.content {
+    width:960px;
+    padding:0 0 15px;
+}
+#main>.content .entry {
+    width:600px;
+    margin:auto;
+}
+#main>.content .entry .intro {
+    color:#eb008b;
+}
+#main>.content .entry .intro h4 {
+    font-weight:bold;
+    font-size:14px;
+    line-height:20px;
+    margin:0 0 10px;
+}
+#main>.content .entry .intro>p {
+    font-size:14px;
+    line-height:20px;
+    margin:0 0 13px;
+}
+#main>.content .entry .intro>p>a {
+    font-weight:bold;
+    color:#eb008b;
+}
+#main>.content .entry.wide {
+    width:650px;
+}
+
+// contact general
+.phone-number {
+    font-family:'LeagueGothicRegular',Arial,sans-serif;
+    font-size:26px;
+}
+
+.business-hours {
+    font-size:10px;
+    color:#d99ab8;
+}
+
+.footer {
+    color:$white;
+}
+
+/*
+contact
+*/
+.contact-us-links li {
+    margin:0 15px 0 0;
+}
+.contact-us-links li>a {
+    background-image:url('../images/ui-icons-contact.png');
+    background-repeat:no-repeat;
+    display:block;
+    height:31px;
+    text-indent:-9000px;
+}
+.contact-us-links li.home>a {
+    width:34px;
+    background-position:-4px -5px;
+}
+.contact-us-links li.home>a:hover {
+    background-position:-4px -60px;
+}
+.contact-us-links li.mail>a {
+    width:34px;
+    background-position:-53px -6px;
+}
+.contact-us-links li.mail>a:hover {
+    background-position:-53px -61px;
+}
+.contact-us-links li.facebook>a {
+    width:30px;
+    background-position:-104px -4px;
+}
+.contact-us-links li.facebook>a:hover {
+    background-position:-104px -59px;
+}
+
+.contact-us-phone {
+    /*background:url('../images/ui-icon-phone.png') no-repeat 0 10px;
+    padding:10px 0 10px 30px;
+    color:#bc498b;*/
+}
+
+/*
+featured sections
+*/
+
+.home-services {
+    position:relative;
+
+    &__title {
+        margin: 0 0 10px;
+        clear: both;
+
+        color: $opera-mauve;
+        font-family: $font-tex;
+        font-size: rem-calc(30px);
+        line-height: 35px;
+        text-transform: uppercase;
+        text-align: center;
+    }
+}
+ .item {
+
+    .thumb {
+        display: block;
+        padding: 0 0 16px;
+
+        //width: 280px;
+        //height: 190px;
+
+        background: url('../images/drop-shadow-280.png') bottom center no-repeat;
+    }
+
+    .call-to-action {
+        font-size: rem-calc(26px);
+        line-height: 28px;
+        font-family: $font-decker;
+        //color: #f5cade;
+
+        strong {
+            display: block;
+            //color: #eb8dbb;
+        }
+
+        a {
+            //color: #f5cade;
+        }
+
+        a > strong {
+            //display: block;
+            //color: #eb8dbb;
+        }
+    }
+}
+
+.item.last {
+margin:0;
+background:url('../images/drop-shadow-280.png') 0 190px no-repeat;
+}
+
+.calculator {
+    position: relative;
+
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 15px;
+    padding: 8px;
+
+    border: 2px solid #EB008B;
+    color: $white;
+    @include linear-gradient(#C20274, #8F0255);
+
+    &__title {
+        color: $white;
+        font-family: $font-tex-bold;
+        font-size: 24px;
+        line-height: 26px;
+        text-align: center;
+
+        strong {
+            display: block;
+            text-transform: uppercase;
+        }
+    }
+
+    &__fields {
+        //padding: 14px 8px 0 0;
+        @extend %clearfix;
+
+        .field { width: 30px; }
+    }
+
+    &__instructions {
+        font-size: rem-calc(11px);
+    }
+
+    &__note {
+        font-size: rem-calc(10px);
+    }
+
+    &__button {
+        display: block;
+
+        width: 150px;
+        height: 38px;
+        margin-left: auto;
+        margin-right: auto;
+
+        border: 1px solid #E91793;
+
+        color: $white;
+        font-size: rem-calc(20px);
+        line-height: 36px;
+        text-transform: uppercase;
+        text-align: center;
+
+        @include linear-gradient(#E554AA, #EB018B);
+        @include box-shadow(0, 2px, 3px, darken(#EB018B, 30%), false);
+        @include border-radius(5px);
+
+        &:hover {
+            color: $white;
+            @include linear-gradient(lighten(#E554AA,8%), lighten(#EB018B,8%));
+        }
+    }
+}
+
+
+/*
+product showcase
+*/
+
+.home-products {
+    background:transparent url('../images/drop-shadow-900.png') top center no-repeat;
+    //width:840px;
+    //margin:0 auto 45px;
+    margin-bottom: 45px;
+    padding-top: 30px;
+
+    &__title {
+        font-size: rem-calc(40px);
+        font-family: $font-tex;
+        line-height: 42px;
+        margin: 0 0 25px;
+        //color:#b08ea2;
+    }
+    .product {
+        /*float:left;
+        display:inline;*/
+        width: 260px;
+        height: 565px;
+        //margin: 0 20px 0 0;
+
+        a {
+            //color:#b08ea2;
+            &:hover {
+                //color:#eb008b;
+                text-decoration:none;
+            }
+        }
+
+        .heading {
+            //padding-top:340px;
+            font-size: rem-calc(32px);
+            line-height: 35px;
+            font-family: $font-tex-bold;
+            margin-bottom: 10px;
+
+            strong,
+            span {
+                display:block;
+                padding-left: 20px;
+            }
+
+            strong {
+                text-transform:uppercase;
+            }
+            span {
+                //padding:0 0 0 40px;
+            }
+        }
+
+        .callout {
+            //height:80px;
+            background:url('../images/bg-callout-demo.png') 0 0 no-repeat;
+            position:relative;
+
+            .demo {
+                // position: absolute;
+                // top: 8px;
+                // left: 19px;
+
+                font-size:12px;
+                font-family: $font-decker;
+                a {
+                    display: block;
+                    width: 75px;
+                    height: 75px;
+                    line-height: 0;
+                    padding: 0;
+                    background: url('../images/link-demo.png') 0 0 no-repeat;
+                    text-indent: -9000px;
+                    &:hover {
+                        background-position: bottom left;
+                    }
+                }
+            }
+            .more {
+                // position: absolute;
+                // bottom: 25px;
+                // right: 45px;
+
+                font-size: rem-calc(18px);
+                text-transform: uppercase;
+                font-family: $font-tex-bold;
+                text-shadow: 0px 1px 0px $white;
+                a {
+                    background: url('../images/icon-arrow-up.png') right center no-repeat;
+                    padding: 0 25px 0 0;
+                    //color:#cfc1cf;
+                    &:hover {
+                        //color:#eb008b;
+                        text-decoration:none;
+                    }
+                }
+            }
+        }
+
+        p {
+            font-family: $font-decker;
+            font-size: 15px;
+            line-height: 20px;
+            margin: 0;
+            //color: #b08ea2;
+            padding: 0 30px;
+            height: 120px;
+        }
+
+        &.last { margin:0; }
+
+        /*&.signos { background:url('../images/products/products-01.png') 0 0 no-repeat; }
+
+        &.tradicional { background:url('../images/products/products-02.png') 0 0 no-repeat; }
+
+        &.easy { background:url('../images/products/products-03.png') 0 0 no-repeat; }*/
+    }
+}
+
+/*
+BUTTONS
+*/
+.btn {
+    display:inline-block;
+    *display:inline;
+    *zoom:1;
+    border-style:solid;
+    border-width:1px;
+    text-align:center;
+    -webkit-border-radius:5px;
+    -moz-border-radius:5px;
+    border-radius:5px;
+}
+.btn.btn-calculator {
+    height:36px;
+    width:135px;
+    margin:78px auto 0;
+    line-height:40px;
+    color:$white !important;
+    background-color:transparent;
+    border:none;
+    display:block;
+    font-size:19px;
+    text-transform:uppercase;
+    text-align:left;
+    padding:0 0 0 20px;
+}
+.btn.btn-calculator:hover {
+    text-decoration:none;
+}
+
+/*
+MENSAJE
+*/
+#msj {
+    position:absolute;
+    top:150px;
+    right:18px;
+    z-index:10;
+}
+#msj>.content {
+    border-radius:5px;
+    width:240px;
+    height:40px;
+    border:2px solid $white;
+    background:#c7c7c7 url('../images/bg-calculator-message.png') 0 0 repeat-x;
+    padding:10px;
+    position:relative;
+}
+#msj>.content .arrow {
+    background:url('../images/arrow-below.png') 0 0 no-repeat;
+    width:13px;
+    height:7px;
+    display:block;
+    position:absolute;
+    top:-9px;
+    left:65px;
+}
+#msj>.content #msj_cerrar {
+    width:11px;
+    height:11px;
+    display:block;
+    text-indent:-9000px;
+    background:url('../images/icon-close.png') 0 0 no-repeat;
+    position:absolute;
+    top:5px;
+    right:5px;
+}
+#msj>.content #msj_cerrar>a {
+    display:block;
+}
+#msj>.content #msj_txt {
+    font-size:12px;
+}
+
+/*
+HEADER PHOTO
+*/
+.header-photo {
+    width:725px;
+    height:320px;
+    text-indent:-9000px;
+    margin:0 auto;
+}
+.header-photo.consejos-para-embarazadas {
+    background:url('../images/headers/embarazadas.jpg') 0 0 no-repeat;
+    height:302px;
+}
+.header-photo.consultorio-online {
+    background:url('../images/headers/consultorio-online.jpg') 0 0 no-repeat;
+}
+.header-photo.decidir-ser-padres {
+    background:url('../images/headers/decidir-ser-padres.jpg') 0 0 no-repeat;
+}
+.header-photo.linea-evatest {
+    background:url('../images/headers/linea-evatest.jpg') 0 0 no-repeat;
+}
+.header-photo.nombres-de-bebes {
+    background:url('../images/headers/nombres-de-bebes.jpg') 0 0 no-repeat;
+}
+.header-photo.salud-femenina {
+    background:url('../images/headers/salud-femenina.jpg') 0 0 no-repeat;
+}
+.header-photo.evatest-news {
+    background:url('../images/headers/evatest-news.jpg') 0 0 no-repeat;
+}
+.header-photo.test-de-embarazo {
+    background:url('../images/headers/test-de-embarazo.jpg') 0 0 no-repeat;
+}
+
+/*
+TABLES
+*/
+table.cuadro {
+    border:1px solid #ccc;
+}
+table.cuadro td,table.cuadro th {
+    text-align:center;
+    border:1px solid #ccc;
+    padding:3px;
+    font-size:12px;
+}
+table.cuadro th {
+    text-align:left;
+    font-weight:bold;
+}
+
+/* -------------------------------------------------------------------
+ALERT MESSAGES
+------------------------------------------------------------------- */
+.system-message {
+    border-style:solid;
+    border-width:1px;
+    text-align:center;
+    padding:5px;
+    clear:both;
+    margin:20px;
+    font-size:14px;
+    -webkit-border-radius:5px;
+    -moz-border-radius:5px;
+    border-radius:5px;
+}
+.system-message.info {
+    border-color:#00529b;
+    color:#00529B;
+    background-color:#BDE5F8;
+    text-shadow:0px 1px 0px #eaf8ff;
+}
+/* -------------------------------------------------------------------
+WIDGETS
+------------------------------------------------------------------- */
+.page-id-94 .ui-widget-content,
+.page-template-pagesnombres-php .ui-widget-content {
+    border:none;
+    background:transparent none;
+    color:#333;
+}
+.page-id-94 .ui-widget-header,
+.page-template-pagesnombres-php .ui-widget-header {
+    border:none;
+    background:none;
+    color:#333;
+    font-weight:bold;
+}
+.page-id-94 .ui-state-default,
+.page-template-pagesnombres-php .ui-state-default,
+.page-id-94 .ui-widget-content .ui-state-default,
+.page-template-pagesnombres-php .ui-widget-content .ui-state-default,
+.page-id-94 .ui-widget-header .ui-state-default,
+.page-template-pagesnombres-php .ui-widget-header .ui-state-default {
+    border:1px solid #BBB;
+    background:#ededed;
+    background:-webkit-gradient(linear,left bottom,left top,color-stop(0,#ededed),color-stop(1,$white));
+    background:-ms-linear-gradient(bottom,#ededed,$white);
+    background:-moz-linear-gradient(center bottom,#ededed 0%,$white 100%);
+    background:-o-linear-gradient($white,#ededed);
+    font-weight:bold;
+    color:#bbb;
+}
+.page-id-94 .ui-tabs .ui-tabs-nav li,
+.page-template-pagesnombres-php .ui-tabs .ui-tabs-nav li {
+    border-bottom-width:1px !important;
+    border-bottom-style:solid !important;
+    border-color:#bbb;
+}
+.page-id-94 .ui-corner-top,
+.page-template-pagesnombres-php .ui-corner-top {
+    -moz-border-radius-topleft:0px;
+    -webkit-border-top-left-radius:0px;
+    border-top-left-radius:0px;
+    -moz-border-radius-topright:0px;
+    -webkit-border-top-right-radius:0px;
+    border-top-right-radius:0px;
+}
+.page-id-94 .ui-tabs .ui-tabs-nav li.ui-tabs-selected,
+.page-template-pagesnombres-php .ui-tabs .ui-tabs-nav li.ui-tabs-selected {
+    padding-bottom:0;
+}
+.page-id-94 .ui-tabs .ui-tabs-nav li,
+.page-template-pagesnombres-php .ui-tabs .ui-tabs-nav li {
+    margin:0;
+    padding:0;
+    width:38px;
+}
+.page-id-94 .ui-tabs .ui-tabs-nav li a,
+.page-template-pagesnombres-php .ui-tabs .ui-tabs-nav li a {
+    font-size:14px;
+    font-family:Arial;
+}
+.page-id-94 .ui-tabs .ui-tabs-nav li.ui-tabs-selected a,
+.page-template-pagesnombres-php .ui-tabs .ui-tabs-nav li.ui-tabs-selected a,
+.page-id-94 .ui-tabs .ui-tabs-nav li.ui-state-disabled a,
+.page-template-pagesnombres-php .ui-tabs .ui-tabs-nav li.ui-state-disabled a,
+.page-id-94 .ui-tabs .ui-tabs-nav li.ui-state-processing a,
+.page-template-pagesnombres-php .ui-tabs .ui-tabs-nav li.ui-state-processing a {
+    cursor:text;
+    color:#f00;
+    background-color:#eee;
+    color:#00aeff;
+    text-shadow:0px 1px 0px #fff;
+    -webkit-box-shadow:inset 0px 0px 3px 3px #d2d2d2;
+    box-shadow:inset 0px 0px 3px 3px #d2d2d2;
+}
+/* -------------------------------------------------------------------
+CONSULTORIO ONLINE
+------------------------------------------------------------------- */
+.consultorio-online .heading {
+    font-size:20px;
+    line-height:24px;
+    font-family: $font-tex-bold;
+    color:#f57fc5;
+    text-align:center;
+    padding:0 0 40px;
+    background:url('../images/bg-heading-bottom.png') bottom center no-repeat;
+    text-transform:uppercase;
+}
+.consultorio-online>p {
+    font-size:14px;
+    line-height:20px;
+    color:#f57fc5;
+    margin:0 0 20px;
+}
+.page-id-46 .note {
+    font-size:12px;
+    color:#666666;
+    clear:both;
+}
+.page-id-46 .filter-label {
+    margin:0;
+    color:#555;
+    clear:both;
+    font-weight:bold;
+}
+.page-id-46 .ui-tabs-nav .ui-state-default {
+    display:inline-block;
+    *display:inline;
+    *zoom:1;
+    border-right:1px solid #ccc;
+    padding:0 10px 0 0;
+    margin:0 0 0 10px;
+}
+.page-id-46 .ui-tabs-nav .ui-state-default a {
+    color:#eb008b;
+    text-decoration:underline;
+}
+.page-id-46 .ui-tabs-nav .ui-state-default a:hover {
+    text-decoration:none;
+}
+.page-id-46 .ui-tabs-nav .ui-state-default.first {
+    margin:0;
+}
+.page-id-46 .ui-tabs-nav .ui-state-default.last {
+    padding:0;
+    border-right:none;
+}
+.page-id-46 .ui-tabs-nav .ui-state-default.ui-state-active a {
+    color:#000;
+    text-decoration:none;
+}
+.query-item {
+    border-bottom:1px dashed #eb008b;
+    padding:0 0 10px;
+    margin:0 0 30px;
+}
+.query-item strong {
+    font-weight:bold;
+}
+.query-item .date {
+    text-transform:uppercase;
+}
+.query-item .user {
+    color:#a70264;
+}
+.query-item .question {
+    color:#555555;
+    font-weight:bold;
+    margin-bottom:10px;
+}
+.query-item .answer {
+    color:#7c7c7c;
+}
+.consultas-posts {
+    background:url('../images/bg-content-section.png') top center no-repeat;
+    clear:both;
+    margin:15px 0 0;
+    padding:30px 0 0;
+}
+.consultas-posts .post-date {
+    float:left;
+    margin-left:-45px;
+    font-weight:bold;
+    text-transform:uppercase;
+    color:#fff;
+    background-color:#a70264;
+    text-align:center;
+}
+.consultas-posts .post-date .dia {
+    display:block;
+    font-size: rem-calc(18px);
+    background:#f3f3f3;
+    color:#333;
+    border:1px solid #b0bbca;
+    border-top:none;
+    color:#767e88;
+    padding:0 5px;
+}
+.consultas-posts article {
+    margin:10px 0 15px;
+    padding:0 0 15px;
+    border-bottom:1px dashed #a70264;
+}
+.consultas-posts .query-question {
+    font-weight:bold;
+}
+.consultas-posts .query-question .user {
+    color:#a70264;
+}
+.consultas-posts .cat-filters li {
+    margin:0 5px 0 0;
+    padding:0 5px 0 0;
+    border-right:1px solid #999999;
+}
+.consultas-posts .cat-filters li.first {
+    border:none;
+}
+#archive-browser>div {
+    display:inline-block;
+    padding-right:10px;
+}
+#archive-wrapper {
+    overflow:hidden;
+}
+#archives-table {
+    border-collapse:collapse;
+    margin:15px 0 0 0;
+    width:100%;
+}
+#archives-table td {
+    padding:4px;
+    border-top:1px solid #eee;
+    border-bottom:1px solid #eee;
+}
+#archives-table td:nth-child(3),#archives-table td:nth-child(4) {
+    white-space:nowrap;
+}
+
+/* -------------------------------------------------------------------
+MODULOS RELACIONADOS
+------------------------------------------------------------------- */
+.modules .module {
+    margin:0;
+}
+.modules .module.calculadora-de-ovulacion {
+    background:url('../images/destacados/calculadora-de-ovulacion.png') 0 0 no-repeat;
+    position:relative;
+    padding:0 0 10px;
+}
+.modules .module.calculadora-de-ovulacion .content {
+    padding:30px 17px 0px 155px;
+}
+.modules .module.calculadora-de-ovulacion .content .fields .imput-back {
+    width:30px;
+}
+.modules .module.calculadora-de-ovulacion .btn-calculator {
+    margin:10px 0 0 154px;
+    padding:0 0 0 10px;
+    height:24px;
+    width:100px;
+    font-size:14px;
+    line-height:24px;
+}
+.modules .module.calculadora-de-ovulacion #msj {
+    top:61px;
+    right:-138px;
+}
+/* -------------------------------------------------------------------
+LEGALES
+------------------------------------------------------------------- */
+.legales h2 {
+    font-size:16px;
+    line-height:20px;
+    font-weight:bold;
+    width:600px;
+    margin:0 auto 15px;
+}
+.legales h3 {
+    font-size:14px;
+    line-height:18px;
+    font-weight:bold;
+    margin:0 0 5px;
+}
+.legales p {
+    margin:0 0 10px;
+    line-height:20px;
+}
+
+/* -------------------------------------------------------------------
+404
+------------------------------------------------------------------- */
+.error404 {
+    background-image:none;
+}
+.error404 .header,.error404 .footer,.error404 .navigation {
+    display:none;
+}
+.error404 .page-not-found {
+    width:860px;
+    height:479px;
+    background:url('../images/error-404.jpg') 0 0 no-repeat transparent;
+    text-indent:-9000px;
+    display:block;
+    margin:0 auto;
+}
+.error404 .page-not-found>a {
+    display:block;
+    width:860px;
+    height:479px;
+}
+/* -------------------------------------------------------------------
+SITEMAP PAGE
+------------------------------------------------------------------- */
+#wp-realtime-sitemap-pages h3 {
+    font-weight:bold;
+}
+#wp-realtime-sitemap-pages ul li {
+    line-height:22px;
+}
+#wp-realtime-sitemap-pages ul li .children {
+    margin:0 0 0 20px;
+}
+#wp-realtime-sitemap-pages ul li .children li {
+    display:list-item;
+    list-style-type:disc;
+}
+
+.contact-info {
+
+    &__phone {
+        margin: 0;
+        color: $hopbush;
+        font-family: $font-league;
+        font-size: rem-calc(26px);
+        line-height: 1;
+        text-align: right;
+
+        .site-footer & { text-align: left; }
+    }
+
+    &__hours {
+        margin: 0;
+        color: $shocking;
+        font-size: rem-calc(10px);
+        line-height: 1;
+        text-align: right;
+
+        .site-footer & { text-align: left; }
+    }
+
+    &__icons {
+        margin: 0;
+        list-style-type: none;
+        text-align: right;
+
+        .site-footer & { text-align: left; }
+
+        > li {
+            display: inline-block;
+        }
+
+        [class^="icon-"] { font-size: rem-calc(32px); }
+    }
+}
+/*
+.site-footer .contact-info {
+    &__phone {
+        text-align: left;
+        font-size: rem-calc(23px);
+    }
+
+    &__hours {
+        text-align: left;
+    }
+
+    &__icons {
+        .site-footer & {
+            text-align: left;
+        }
+
+        [class^="icon-"] { font-size: rem-calc(29px); }
+    }
+}
+*/
