@@ -7,9 +7,38 @@ Template Name: Front page
 
 	<div class="row">
 		<div class="small-12 columns">
-			<div class="slider">
-				<?php if ( function_exists( 'meteor_slideshow' ) ) { meteor_slideshow(); } ?>
-			</div>
+			<ul class="slides">
+				<?php
+					$temp     = $wp_query;
+					$wp_query = null;
+					$wp_query = new WP_Query();
+					$wp_query->query('showposts=-1&post_type=evatest_slider');
+
+					while ($wp_query->have_posts()) : $wp_query->the_post();
+				?>
+
+
+				<?php
+					$images = rwmb_meta( 'elea_img_slide', 'type=image' );
+
+					foreach ( $images as $image ) {
+						echo "<li><a href=\"";
+						echo rwmb_meta( 'elea_url_slide' );
+						echo "\"><img src=\"{$image['full_url']}\" alt=\"";
+						echo the_title();
+						echo "\" title=\"";
+						echo the_title();
+						echo "\"></a></li> ";
+					}
+				?>
+
+				<?php
+					endwhile;
+					$wp_query = null;
+					$wp_query = $temp;  // Reset
+				?>
+
+			</ul>
 		</div>
 	</div>
 
@@ -120,7 +149,7 @@ Template Name: Front page
 			</div>
 			<div class="small-12 medium-12 large-4 columns">
 				<div class="product tradicional">
-				<img src="<?php echo bloginfo('template_directory'); ?>/images/products/products-02.png" alt="" class="show-for-large-up">>
+				<img src="<?php echo bloginfo('template_directory'); ?>/images/products/products-02.png" alt="" class="show-for-large-up">
 					<a href="<?php echo esc_url( home_url() ); ?>/linea-evatest/evatest-tradicional/" title="Evatest Tradicional">
 						<h2 class="heading"><strong>Evatest</strong> <span>Classic</span></h2>
 					</a>
@@ -135,7 +164,7 @@ Template Name: Front page
 			</div>
 			<div class="small-12 medium-12 large-4 columns">
 				<div class="product easy">
-				<img src="<?php echo bloginfo('template_directory'); ?>/images/products/products-03.png" alt="" class="show-for-large-up">>
+				<img src="<?php echo bloginfo('template_directory'); ?>/images/products/products-03.png" alt="" class="show-for-large-up">
 					<a href="<?php echo esc_url( home_url() ); ?>/linea-evatest/evatest-easy/" title="Evatest Easy">
 						<h2 class="heading"><strong>Evatest</strong> <span>Easy</span></h2>
 					</a>
