@@ -61,12 +61,14 @@ function elea_register_meta_boxes( $meta_boxes )
 			),
 			// URL
 			array(
-				'name'  => __( 'URL', 'meta-box' ),
-				'id'    => "{$prefix}url_slide",
+				'name'  => __( 'Vínculo', 'meta-box' ),
+				'id'    => "{$prefix}url",
 				'desc'  => __( '', 'meta-box' ),
-				'type'  => 'url',
-				'std'   => 'http://www.evatest.com',
+				'type'  => 'text',
+				'std'   => __( '', 'your-prefix' ),
+				'clone' => false,
 			)
+
 		)
 	);
 

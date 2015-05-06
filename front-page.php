@@ -23,7 +23,8 @@ Template Name: Front page
 
 					foreach ( $images as $image ) {
 						echo "<li><a href=\"";
-						echo rwmb_meta( 'elea_url_slide' );
+						echo esc_url( home_url() );
+						echo rwmb_meta( 'elea_url' );
 						echo "\"><img src=\"{$image['full_url']}\" alt=\"";
 						echo the_title();
 						echo "\" title=\"";
