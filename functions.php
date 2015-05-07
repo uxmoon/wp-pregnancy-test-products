@@ -3,23 +3,14 @@
 /* -------------------------------------------------------------------
 JQUERY
 ------------------------------------------------------------------- */
-if ( !is_admin() ) {
+/*if ( !is_admin() ) {
   wp_deregister_script('jquery');
   wp_register_script('jquery', ("http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"), false);
   wp_enqueue_script('jquery');
 }
 
-function my_scripts_method() {
-  wp_enqueue_script(
-    'slick-script',
-    get_stylesheet_directory_uri() . '/js/slick.min.js',
-    array( 'jquery' ),
-    '',
-    true
-  );
-}
-
-add_action( 'wp_enqueue_scripts', 'my_scripts_method' );
+function my_scripts_method() { wp_enqueue_script( 'slick-script', get_stylesheet_directory_uri() . '/js/slick.min.js', array( 'jquery' ), '', true); }
+add_action( 'wp_enqueue_scripts', 'my_scripts_method' );*/
 
 /* -------------------------------------------------------------------
 PLUGIN MEDIA ELEMENT - CSS LOAD TO SPECIFIC PAGES
@@ -33,17 +24,34 @@ if ( !is_admin() && is_page(array(6109,6138,6142,7216,13642)) ) {
 }
 add_action( 'wp_enqueue_scripts', 'theme_name_scripts' );
 
-/* -------------------------------------------------------------------
-SLICK CSS
-------------------------------------------------------------------- */
 
-function slick_styles() {
-if ( !is_admin() && is_page(13948) ) {
-    wp_enqueue_style( 'slick-css', get_stylesheet_directory_uri() . '/css/slick.css', array(), '', 'screen' );
-  }
+/**
+ * Enqueue scripts and styles.
+ */
+function evatest_scripts() {
+  wp_enqueue_style( 'evatest-style', get_stylesheet_uri() );
+
+  /* Add Foundation CSS */
+  wp_enqueue_style( 'evatest-app', get_stylesheet_directory_uri() . '/css/app.css' );
+
+  /* Add Foundation JS */
+  wp_enqueue_script( 'evatest-modernizr', get_template_directory_uri() . '/bower_components/modernizr/modernizr.js', array('jquery'), '1', false );
+  wp_enqueue_script( 'evatest-foundation-js', get_template_directory_uri() . '/bower_components/foundation/js/foundation.min.js', array('jquery'), '1', true );
+  wp_enqueue_script( 'evatest-slick', get_template_directory_uri() . '/js/slick.min.js', array('jquery'), '1', true );
+  wp_enqueue_script( 'evatest-calculadora', get_template_directory_uri() . '/js/calculadora.min.js', array('jquery'), '1', true );
+  wp_enqueue_script( 'evatest-fancybox', get_template_directory_uri() . '/fancybox/jquery.fancybox.js', array('jquery'), '1', true );
+  wp_enqueue_script( 'evatest-youtube', 'http://www.youtube.com/player_api', array(), '1', true );
+  wp_enqueue_script( 'evatest-jquery-ui', 'http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.13/jquery-ui.min.js', array('jquery'), '1', false );
+  wp_enqueue_script( 'evatest-archives', get_template_directory_uri() . '/js/archives.js', array(), '1', true );
+  wp_enqueue_script( 'evatest-jpages',  get_template_directory_uri() . '/js/jPages.min.js', array(), '1', true );
+  wp_enqueue_script( 'evatest-foundation-app-js', get_template_directory_uri() . '/js/app.js', array('jquery'), '1', true );
+
+
+  // if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
+  //  wp_enqueue_script( 'comment-reply' );
+  // }
 }
-add_action( 'wp_enqueue_scripts', 'slick_styles' );
-
+add_action( 'wp_enqueue_scripts', 'evatest_scripts' );
 
 /* -------------------------------------------------------------------
 CUSTOM POST TYPE - CONSULTAS
@@ -237,4 +245,59 @@ function evatheme_setup() {
   //set_post_thumbnail_size( 624, 9999 ); // Unlimited height, soft crop
 }
 add_action( 'after_setup_theme', 'evatheme_setup' );
-?>
+
+
+/* -------------------------------------------------------------------
+Disable Emojicons in v 4.2
+http://wordpress.stackexchange.com/questions/185577/disable-emojicons-introduced-with-wp-4-2
+------------------------------------------------------------------- */
+function disable_wp_emojicons() {
+
+  // all actions related to emojis
+  remove_action( 'admin_print_styles', 'print_emoji_styles' );
+  remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
+  remove_action( 'admin_print_scripts', 'print_emoji_detection_script' );
+  remove_action( 'wp_print_styles', 'print_emoji_styles' );
+  remove_filter( 'wp_mail', 'wp_staticize_emoji_for_email' );
+  remove_filter( 'the_content_feed', 'wp_staticize_emoji' );
+  remove_filter( 'comment_text_rss', 'wp_staticize_emoji' );
+
+  // filter to remove TinyMCE emojis
+  add_filter( 'tiny_mce_plugins', 'disable_emojicons_tinymce' );
+}
+add_action( 'init', 'disable_wp_emojicons' );
+
+/*disable emojicons in editor*/
+
+function disable_emojicons_tinymce( $plugins ) {
+  if ( is_array( $plugins ) ) {
+    return array_diff( $plugins, array( 'wpemoji' ) );
+  } else {
+    return array();
+  }
+}
+
+function add_this_script_footer(){ ?>
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-556063-30']);
+  _gaq.push(['_gat._forceSSL']);
+  _gaq.push(['_gat._anonymizeIp']);
+  _gaq.push(['_trackPageview']);
+
+  (function () {
+    var ga = document.createElement('script');
+    ga.type = 'text/javascript';
+    ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+<?php }
+
+add_action('wp_footer', 'add_this_script_footer');

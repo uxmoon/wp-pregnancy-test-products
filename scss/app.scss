@@ -10,7 +10,9 @@
 
 @import "menu";
 
-@import "slider";
+//@import "slider";
+@import "slick";
+@import "slick-theme";
 
 @import "accordion";
 
@@ -37,6 +39,7 @@ body {
     height: 134px;
     background: transparent url('../images/logo.png') 0 0 no-repeat;
     text-indent: -9000px;
+    visibility: hidden;
 
     > a {
         display: block;

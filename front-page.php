@@ -7,7 +7,7 @@ Template Name: Front page
 
 	<div class="row">
 		<div class="small-12 columns">
-			<ul class="slides">
+			<ul class="slider-home">
 				<?php
 					$temp     = $wp_query;
 					$wp_query = null;
