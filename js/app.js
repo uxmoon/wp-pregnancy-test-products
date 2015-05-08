@@ -1,12 +1,6 @@
-jQuery(document).foundation();
+var $ = jQuery.noConflict();
 
-jQuery(document).ready(function(){
-    jQuery('.slider-home').slick({
-        arrows: false,
-        dots: true
-    });
-});
-
+$(document).foundation();
 
 
 /*('video').mediaelementplayer({
@@ -14,15 +8,14 @@ jQuery(document).ready(function(){
 });*/
 
 
-jQuery('.slider-home').slick({
-    autoplay: true,
-    autoplaySpeed: 5000,
-    arrows: true,
-    dots: false,
-    infinite: true,
-    pauseOnHover: false,
-    //slide: 'div.slide-posta-raices',
-    speed: 400
+$('.slider-home').slick({
+    autoplay        : true,
+    /*autoplaySpeed   : 5000,
+    arrows          : true,
+    dots            : false,
+    infinite        : true,
+    pauseOnHover    : false,
+    speed: 400*/
 });
 
 /*
@@ -33,8 +26,8 @@ jQuery('.slider-home').slick({
     <script type="text/javascript">
 */
 
-jQuery(document).ready(function() {
-    jQuery('.fancybox').fancybox();
+$(document).ready(function() {
+    $('.fancybox').fancybox();
 });
 /*
     </script>
@@ -42,7 +35,7 @@ jQuery(document).ready(function() {
     <script>
 */
     function onYouTubePlayerAPIReady() {
-        jQuery(document).ready(function () {
+        $(document).ready(function () {
             jQuery.fancybox({
                 href: "http://www.youtube.com/embed/3BnkoJvD5uk?enablejsapi=1&wmode=opaque&autoplay=1",
                 //href: "http://www.youtube.com/embed/KL-k5kXqBCE?rel=0&amp;autoplay=1",
@@ -71,8 +64,8 @@ elseif ( is_page(array(48,94,535)) ) {
 ?>
     <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.13/jquery-ui.min.js"></script>
     <script>*/
-        jQuery("document").ready(function() {
-            jQuery( "#tabs" ).tabs();
+        $("document").ready(function() {
+            $( "#tabs" ).tabs();
         });/*
     </script>
 
@@ -97,12 +90,12 @@ elseif ( is_page(array(818)) ) {
     <script src="<?php echo esc_url( get_template_directory_uri() ); ?>/js/jPages.min.js"></script>
 
     <script type="text/javascript">*/
-        jQuery(function() {
-            jQuery("#archive-browser select").change(function() {
+        $(function() {
+            $("#archive-browser select").change(function() {
             // dynamically load the archives
             });
         });
-        jQuery("div.holder").jPages({
+        $("div.holder").jPages({
             containerID : "#archive-pot"
         });/*
     </script>
@@ -113,19 +106,19 @@ if ( is_page(array(46)) ) {
 ?>
     <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
     <script type="text/javascript">*/
-        jQuery(function() {
+        $(function() {
             var hijax = function(panel) {
-                jQuery('a.page', panel).click(function(){
-                    jQuery(panel).load(this.href, {}, function() {
+                $('a.page', panel).click(function(){
+                    $(panel).load(this.href, {}, function() {
                         hijax(this);
                     });
                     return false;
                 });
             };
-            jQuery("#tabs").tabs({
+            $("#tabs").tabs({
                 ajaxOptions: {
                     error: function(xhr, status, index, anchor) {
-                        jQuery(anchor.hash).html("Error");
+                        $(anchor.hash).html("Error");
                     },
                 },
                 load: function(event, ui) {
@@ -142,11 +135,11 @@ elseif ( is_page(21351) ) {
 ?>
 
     <script type="text/javascript">*/
-        jQuery('#archive-pot').on('click', '.wp-paginate a', function(e){
+        $('#archive-pot').on('click', '.wp-paginate a', function(e){
             e.preventDefault();
-            var link = jQuery(this).attr('href');
-            jQuery('#archives-table').fadeOut(500, function(){
-                jQuery(this).load(link + ' #archives-table').fadeIn(500);
+            var link = $(this).attr('href');
+            $('#archives-table').fadeOut(500, function(){
+                $(this).load(link + ' #archives-table').fadeIn(500);
             });
         });/*
     </script>
@@ -155,8 +148,8 @@ elseif ( is_page(21351) ) {
 
 <script type="text/javascript" src="<?php echo get_stylesheet_directory_uri() ?>/fancybox/jquery.fancybox.js"></script>
 <script type="text/javascript">*/
-    jQuery(document).ready(function() {
-        jQuery('.fancybox')
+    $(document).ready(function() {
+        $('.fancybox')
         .fancybox({
             scrolling : 'no'
         });

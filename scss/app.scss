@@ -10,10 +10,6 @@
 
 @import "menu";
 
-//@import "slider";
-@import "slick";
-@import "slick-theme";
-
 @import "accordion";
 
 @import "form-contact";
@@ -926,3 +922,5 @@ SITEMAP PAGE
 // IE8 support
 @import 'ie';
 
+@import "slick";
+@import "slick-theme";

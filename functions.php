@@ -37,15 +37,19 @@ function evatest_scripts() {
   wp_enqueue_style( 'evatest-names', get_stylesheet_directory_uri() . '/css/jPages.css' );
 
   /* Add Foundation JS */
-  wp_enqueue_script( 'evatest-modernizr', get_template_directory_uri() . '/bower_components/modernizr/modernizr.js', array('jquery'), '1', false );
-  wp_enqueue_script( 'evatest-foundation-js', get_template_directory_uri() . '/bower_components/foundation/js/foundation.min.js', array('jquery'), '1', true );
-  wp_enqueue_script( 'evatest-slick', get_template_directory_uri() . '/js/slick.min.js', array('jquery'), '1', true );
-  wp_enqueue_script( 'evatest-calculadora', get_template_directory_uri() . '/js/calculadora.min.js', array('jquery'), '1', true );
-  wp_enqueue_script( 'evatest-fancybox', get_template_directory_uri() . '/fancybox/jquery.fancybox.js', array('jquery'), '1', true );
-  wp_enqueue_script( 'evatest-youtube', 'http://www.youtube.com/player_api', array(), '1', true );
+  wp_enqueue_script( 'evatest-modernizr', get_template_directory_uri() . '/bower_components/modernizr/modernizr.js', array(), '1', false );
   wp_enqueue_script( 'evatest-jquery-ui', 'http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.13/jquery-ui.min.js', array('jquery'), '1', false );
+
+  wp_enqueue_script( 'evatest-foundation-js', get_template_directory_uri() . '/bower_components/foundation/js/foundation.min.js', array('jquery'), '1', true );
+
+  wp_enqueue_script( 'evatest-calculadora', get_template_directory_uri() . '/js/calculadora.min.js', array('jquery'), '1', true );
+  wp_enqueue_script( 'evatest-youtube', 'http://www.youtube.com/player_api', array(), '1', true );
   wp_enqueue_script( 'evatest-archives', get_template_directory_uri() . '/js/archives.js', array(), '1', true );
+
+  wp_enqueue_script( 'evatest-fancybox', get_template_directory_uri() . '/fancybox/jquery.fancybox.js', array('jquery'), '1', true );
   wp_enqueue_script( 'evatest-jpages',  get_template_directory_uri() . '/js/jPages.min.js', array(), '1', true );
+
+  wp_enqueue_script( 'evatest-slick', get_template_directory_uri() . '/js/slick.min.js', array('jquery'), '1', true );
   wp_enqueue_script( 'evatest-foundation-app-js', get_template_directory_uri() . '/js/app.js', array('jquery'), '1', true );
 
 
@@ -62,31 +66,31 @@ CUSTOM POST TYPE - CONSULTAS
 function create_post_type() {
   register_post_type( 'consultas',
     array(
-      'labels' => array(
-      'name' => __( 'Consultas' ),
-      'singular_name' => __( 'Consulta' ),
-      'add_new' => __( 'Crear nueva' ),
-      'add_new_item' => __( 'Crear nueva Consulta' ),
-      'edit' => __( 'Editar' ),
-      'edit_item' => __( 'Editar consulta' ),
-      'new_item' => __( 'Nueva consulta' ),
-      'view' => __( 'Ver consulta' ),
-      'view_item' => __( 'Ver consulta' ),
-      'search_items' => __( 'Buscar en consultas' ),
-      'not_found' => __( 'No se encontraron consultas' ),
+      'labels'             => array(
+      'name'               => __( 'Consultas' ),
+      'singular_name'      => __( 'Consulta' ),
+      'add_new'            => __( 'Crear nueva' ),
+      'add_new_item'       => __( 'Crear nueva Consulta' ),
+      'edit'               => __( 'Editar' ),
+      'edit_item'          => __( 'Editar consulta' ),
+      'new_item'           => __( 'Nueva consulta' ),
+      'view'               => __( 'Ver consulta' ),
+      'view_item'          => __( 'Ver consulta' ),
+      'search_items'       => __( 'Buscar en consultas' ),
+      'not_found'          => __( 'No se encontraron consultas' ),
       'not_found_in_trash' => __( 'No se encontraron consultas en la Papelera' )
     ),
-    'description' => __( 'Consultorio online para Evatest.' ),
-    'menu_icon' => 'dashicons-welcome-write-blog',
-    'public' => true,
-    'has_archive' => true,
-    'show_ui' => true,
-    'publicly_queryable' => true,
+    'description'         => __( 'Consultorio online para Evatest.' ),
+    'menu_icon'           => 'dashicons-welcome-write-blog',
+    'public'              => true,
+    'has_archive'         => true,
+    'show_ui'             => true,
+    'publicly_queryable'  => true,
     'exclude_from_search' => false,
-    'capability_type' => 'post',
-    'menu_position' => 7,
-    'query_var' => true,
-    'supports' => array(
+    'capability_type'     => 'post',
+    'menu_position'       => 7,
+    'query_var'           => true,
+    'supports'            => array(
         'title',
         'editor',
         'excerpt',
@@ -126,16 +130,16 @@ function my_wpcf7_save($cfdata) {
     );
 
     $newpost = array(
-    'post_title' => $formcategory[ $formdata['topic'] ],
-    'post_content' => $formdata['your-message'],
+    'post_title'    => $formcategory[ $formdata['topic'] ],
+    'post_content'  => $formdata['your-message'],
     'post_category' => array($formdata['topic']),
-		'post_status' => 'pending',
-		'post_type' => 'consultas'
+    'post_status'   => 'pending',
+    'post_type'     => 'consultas'
 	);
 
     $writer_name  = ucwords(strtolower($data['your-name']));
-    $writer_email   = strtolower($data['your-email']);
-    $newpostid = wp_insert_post($newpost);
+    $writer_email = strtolower($data['your-email']);
+    $newpostid    = wp_insert_post($newpost);
 
   	add_post_meta($newpostid, 'nombre', $formdata['your-name']);
     add_post_meta($newpostid, 'email', $formdata['your-email']);
@@ -197,11 +201,11 @@ Theme check - REGISTER SIDEBAR
 ------------------------------------------------------------------- */
 function theme_slug_widgets_init() {
     register_sidebar( array(
-        'name' => __( 'Main Sidebar', 'theme-slug' ),
-        'id' => 'sidebar-1',
-        'description' => __( 'Widgets in this area will be shown on all posts and pages.', 'theme-slug' ),
+        'name'         => __( 'Main Sidebar', 'theme-slug' ),
+        'id'           => 'sidebar-1',
+        'description'  => __( 'Widgets in this area will be shown on all posts and pages.', 'theme-slug' ),
         'before_title' => '<h1>',
-        'after_title' => '</h1>',
+        'after_title'  => '</h1>',
     ) );
 }
 add_action( 'widgets_init', 'theme_slug_widgets_init' );
