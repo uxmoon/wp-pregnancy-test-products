@@ -283,6 +283,7 @@ function disable_emojicons_tinymce( $plugins ) {
   }
 }
 
+// add google analytics in the footer section
 function add_this_script_footer(){ ?>
 
 <script type="text/javascript">
