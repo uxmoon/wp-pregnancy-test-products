@@ -1,6 +1,3 @@
-<!-- 	</div>
-</div> -->
-
 </main>
 
 
@@ -100,7 +97,7 @@
 		</div>
 	</div>
 	<div class="row">
-		<div class="small-12 columns show-for-medium-up">
+		<div class="small-12 large-12 columns show-for-medium-up">
 			<div class="copy">
 				<p>Servicio desarrollado por Laboratorio Elea SACIFyA - Sanabria 2353, Buenos Aires, Argentina. &copy; Copyright 2012 - Todos los derechos reservados.</p>
 
@@ -116,6 +113,10 @@
 	</div>
 	<p class="developer"><a href="http://guibomedia.com/" title="Desarrollado por GuiboMedia">Powered by GuiboMedia</a></p>
 </footer>
+
+<!--[if lt IE 9]>
+    <script src="<?php echo esc_url( get_template_directory_uri() ); ?>/js/ie/rem.min.js"></script>
+<![endif]-->
 
 <?php wp_footer(); ?>
 

@@ -33,6 +33,8 @@ function evatest_scripts() {
 
   /* Add Foundation CSS */
   wp_enqueue_style( 'evatest-app', get_stylesheet_directory_uri() . '/css/app.css' );
+  wp_enqueue_style( 'evatest-jquery-ui-css', 'http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.13/themes/cupertino/jquery-ui.css' );
+  wp_enqueue_style( 'evatest-names', get_stylesheet_directory_uri() . '/css/jPages.css' );
 
   /* Add Foundation JS */
   wp_enqueue_script( 'evatest-modernizr', get_template_directory_uri() . '/bower_components/modernizr/modernizr.js', array('jquery'), '1', false );
