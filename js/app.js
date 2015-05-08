@@ -2,38 +2,16 @@ var $ = jQuery.noConflict();
 
 $(document).foundation();
 
-
-/*('video').mediaelementplayer({
-    alwaysShowControls: true,
-});*/
-
-
-$('.slider-home').slick({
-    autoplay        : true,
-    /*autoplaySpeed   : 5000,
-    arrows          : true,
-    dots            : false,
-    infinite        : true,
-    pauseOnHover    : false,
-    speed: 400*/
-});
-
-/*
-<?php //if ( is_front_page() ) { ?>
-<?php if ( is_page('demo') ) { ?>
-
-    <script type="text/javascript" src="<?php echo get_template_directory_uri() ?>/fancybox/jquery.fancybox.js"></script>
-    <script type="text/javascript">
-*/
-
 $(document).ready(function() {
-    $('.fancybox').fancybox();
-});
-/*
-    </script>
-    <script src="http://www.youtube.com/player_api"></script>
-    <script>
-*/
+
+    // modal box for videos
+    //$('.fancybox').fancybox();
+
+    $('.fancybox').fancybox({
+        scrolling : 'no'
+    });
+
+    // youtube api
     function onYouTubePlayerAPIReady() {
         $(document).ready(function () {
             jQuery.fancybox({
@@ -57,16 +35,97 @@ $(document).ready(function() {
             }); // fancybox
         }); // ready
     } // onYouTubePlayerAPIReady
+
+    // slider home
+    $('.slider-home').slick({
+        autoplay        : true,
+        autoplaySpeed   : 5000,
+        arrows          : true,
+        dots            : false,
+        infinite        : true,
+        pauseOnHover    : false,
+        speed: 400
+    });
+
+    //  tabs for baby names
+    $( "#tabs" ).tabs();
+
+    // "consultorio online" section start
+    $(function() {
+        $("#archive-browser select").change(function() {
+        // dynamically load the archives
+        });
+    });
+
+    $("div.holder").jPages({
+        containerID : "#archive-pot"
+    });
+
+    $(function() {
+        var hijax = function(panel) {
+            $('a.page', panel).click(function(){
+                $(panel).load(this.href, {}, function() {
+                    hijax(this);
+                });
+                return false;
+            });
+        };
+        $("#tabs").tabs({
+            ajaxOptions: {
+                error: function(xhr, status, index, anchor) {
+                    $(anchor.hash).html("Error");
+                },
+            },
+            load: function(event, ui) {
+                hijax(ui.panel);
+
+            }
+        });
+    });
+
+    $('#archive-pot').on('click', '.wp-paginate a', function(e){
+        e.preventDefault();
+        var link = $(this).attr('href');
+        $('#archives-table').fadeOut(500, function(){
+            $(this).load(link + ' #archives-table').fadeIn(500);
+        });
+    });
+    // "consultorio online" section end
+
+}); // end dom ready
+
+
+/*('video').mediaelementplayer({
+    alwaysShowControls: true,
+});*/
+
+
+
+/*
+<?php //if ( is_front_page() ) { ?>
+<?php if ( is_page('demo') ) { ?>
+
+    <script type="text/javascript" src="<?php echo get_template_directory_uri() ?>/fancybox/jquery.fancybox.js"></script>
+    <script type="text/javascript">
+*/
+
+
+/*
+    </script>
+    <script src="http://www.youtube.com/player_api"></script>
+    <script>
+*/
+
 /*    </script>
 <?php }
 //nombres de bebés
 elseif ( is_page(array(48,94,535)) ) {
 ?>
     <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.13/jquery-ui.min.js"></script>
-    <script>*/
+    <script>
         $("document").ready(function() {
             $( "#tabs" ).tabs();
-        });/*
+        });
     </script>
 
 <?php }
@@ -90,14 +149,7 @@ elseif ( is_page(array(818)) ) {
     <script src="<?php echo esc_url( get_template_directory_uri() ); ?>/js/jPages.min.js"></script>
 
     <script type="text/javascript">*/
-        $(function() {
-            $("#archive-browser select").change(function() {
-            // dynamically load the archives
-            });
-        });
-        $("div.holder").jPages({
-            containerID : "#archive-pot"
-        });/*
+/*
     </script>
 
 <?php }
@@ -106,27 +158,7 @@ if ( is_page(array(46)) ) {
 ?>
     <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
     <script type="text/javascript">*/
-        $(function() {
-            var hijax = function(panel) {
-                $('a.page', panel).click(function(){
-                    $(panel).load(this.href, {}, function() {
-                        hijax(this);
-                    });
-                    return false;
-                });
-            };
-            $("#tabs").tabs({
-                ajaxOptions: {
-                    error: function(xhr, status, index, anchor) {
-                        $(anchor.hash).html("Error");
-                    },
-                },
-                load: function(event, ui) {
-                    hijax(ui.panel);
-
-                }
-            });
-        });/*
+/*
     </script>
 
 <?php }
@@ -135,19 +167,13 @@ elseif ( is_page(21351) ) {
 ?>
 
     <script type="text/javascript">*/
-        $('#archive-pot').on('click', '.wp-paginate a', function(e){
-            e.preventDefault();
-            var link = $(this).attr('href');
-            $('#archives-table').fadeOut(500, function(){
-                $(this).load(link + ' #archives-table').fadeIn(500);
-            });
-        });/*
+/*
     </script>
 
 <?php } ?>
 
 <script type="text/javascript" src="<?php echo get_stylesheet_directory_uri() ?>/fancybox/jquery.fancybox.js"></script>
-<script type="text/javascript">*/
+<script type="text/javascript">
     $(document).ready(function() {
         $('.fancybox')
         .fancybox({
