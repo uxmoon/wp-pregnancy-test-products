@@ -2,7 +2,6 @@
 				<h1><?php the_title(); ?></h1>
 			</div>
 
-			<?php //wp_nav_menu( array('menu' => 'linea-evatest-tradicional', 'items_wrap' => '<ul class="l-inline clearfix menu-products">%3$s</ul>' )); ?>
 			<?php wp_nav_menu( array('menu' => 'productos', 'items_wrap' => '<ul class="l-inline clearfix menu-products">%3$s</ul>' )); ?>
 
 			<div class="item-single clearfix">

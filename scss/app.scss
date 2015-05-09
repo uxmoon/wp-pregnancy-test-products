@@ -35,7 +35,6 @@ body {
     height: 134px;
     background: transparent url('../images/logo.png') 0 0 no-repeat;
     text-indent: -9000px;
-    visibility: hidden;
 
     > a {
         display: block;
@@ -485,14 +484,14 @@ MENSAJE
 HEADER PHOTO
 */
 .header-photo {
-    width:725px;
-    height:320px;
-    text-indent:-9000px;
-    margin:0 auto;
+    //width:725px;
+    //height:320px;
+    //text-indent:-9000px;
+    //margin:0 auto;
 }
 .header-photo.consejos-para-embarazadas {
     background:url('../images/headers/embarazadas.jpg') 0 0 no-repeat;
-    height:302px;
+    //height:302px;
 }
 .header-photo.consultorio-online {
     background:url('../images/headers/consultorio-online.jpg') 0 0 no-repeat;
@@ -804,23 +803,21 @@ MODULOS RELACIONADOS
 /* -------------------------------------------------------------------
 LEGALES
 ------------------------------------------------------------------- */
-.legales h2 {
-    font-size:16px;
-    line-height:20px;
-    font-weight:bold;
-    width:600px;
-    margin:0 auto 15px;
+.legales {
+    h2 {
+        @include font-size(16px);
+        font-weight: bold;
+    }
+    h3 {
+        @include font-size(14px);
+        font-weight: bold;
+        margin: 0;
+    }
+    p {
+        @include font-size(13px);
+    }
 }
-.legales h3 {
-    font-size:14px;
-    line-height:18px;
-    font-weight:bold;
-    margin:0 0 5px;
-}
-.legales p {
-    margin:0 0 10px;
-    line-height:20px;
-}
+
 
 /* -------------------------------------------------------------------
 404
