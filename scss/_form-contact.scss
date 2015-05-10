@@ -2,79 +2,83 @@
 CONTACT FORM
 ------------------------------------------------------------------- */
 .contact-form {
-	background:url('images/bg-contact-form.png') 0 0 no-repeat;
-	width:600px;
-	height:240px;
-	margin:0 auto;
-	color:#ffffff;
+    border: 2px solid #EB008B;
+    color: $white;
+    @include linear-gradient(#C20274, #8F0255);
+    @include border-radius(5px);
+
+    form {
+        //padding: 10px 0 0 10px;
+
+        input.your-name,
+        input.your-email,
+        textarea {
+            @include border-radius(5px);
+        }
+        .topic-select .label {
+            line-height: 25px;
+            margin: 0 5px 0 0;
+        }
+
+        textarea {
+            font-family: Arial, sans-serif;
+            height: 90px;
+        }
+
+    }
+    form select {
+        width: 230px;
+    }
+     form .captcha-txt {
+        width: 50px;
+    }
+     form .call-to-action li {
+        padding: 0 5px 0 0;
+    }
+     form .call-to-action li strong {
+        display: block;
+    }
+     form .call-to-action .submit {
+        padding: 0;
+    }
+     form .call-to-action .submit .wpcf7-submit {
+        width: 78px;
+        height: 30px;
+        text-transform: uppercase;
+        text-indent: -9000px;
+        cursor: pointer;
+        background-color: transparent;
+        padding: 0;
+        margin: 0;
+        border: none;
+        background-image: url('images/btn-send.png');
+        background-position: top left;
+        background-repeat: no-repeat;
+    }
+     form .call-to-action .submit .wpcf7-submit:hover {
+        background-position: bottom left;
+    }
 }
-.contact-form>ul>li {
-	font-size:12px;
-}
-.contact-form form {
-	width:300px;
-	float:left;
-	padding:10px 0 0 10px;
-}
-.contact-form form textarea {
-	width:300px;
-	height:90px;
-	font-family:Arial,sans-serif;
-}
-.contact-form form input.your-name,.contact-form form input.your-email,.contact-form form textarea {
-	width:300px;
-	-webkit-border-radius:5px;
-	-moz-border-radius:5px;
-	border-radius:5px;
-}
-.contact-form form .topic-select .label {
-	line-height:25px;
-	margin:0 5px 0 0;
-}
-.contact-form form select {
-	width:230px;
-}
-.contact-form form .captcha-txt {
-	width:50px;
-}
-.contact-form form .call-to-action li {
-	padding:0 5px 0 0;
-}
-.contact-form form .call-to-action li strong {
-	display:block;
-}
-.contact-form form .call-to-action .submit {
-	padding:0;
-}
-.contact-form form .call-to-action .submit .wpcf7-submit {
-	width:78px;
-	height:30px;
-	text-transform:uppercase;
-	text-indent:-9000px;
-	cursor:pointer;
-	background-color:transparent;
-	padding:0;
-	margin:0;
-	border:none;
-	background-image:url('images/btn-send.png');
-	background-position:top left;
-	background-repeat:no-repeat;
-}
-.contact-form form .call-to-action .submit .wpcf7-submit:hover {
-	background-position:bottom left;
-}
-.contact-form .instructions {
-	width:235px;
-	float:right;
-	padding:10px 30px 0 0;
-}
-.contact-form .instructions li {
-	font-size:12px;
-	margin:0 0 8px;
-}
-.contact-form .instructions li.subscribe {
-	color:#f57fc5;
-}
-.contact-form .instructions li.subscribe label {
-	cursor: pointer;
+
+.consultorio-online__instructions {
+    p {
+        line-height: 1;
+        margin: 0;
+        margin-bottom: 8px;
+        @include font-size(12px);
+    }
+
+    ul {
+        margin-bottom: 10px;
+    }
+
+    li {
+        @include font-size(12px);
+    }
+
+    label {
+        color: #F57FC5;
+        line-height: 1;
+        @include font-size(12px);
+    }
 }

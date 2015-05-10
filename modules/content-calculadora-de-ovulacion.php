@@ -1,19 +1,19 @@
-<div class="module calculadora-de-ovulacion">
-	<div class="content">
-		<div class="fields">
-			<input name="txt_1" class="imput-back" id="txt_1" onkeypress="return acceptNum(event)" value="" size="2" maxlength="2"/>
+<div class="calculator calculator--small">
 
-			<input name="txt_2" class="imput-back" id="txt_2" onkeypress="return acceptNum(event)" value="" size="2" maxlength="2"/>
+    <h3 class="calculator__title">Calculadora de ovulación</h3>
 
-			<input name="txt_3" class="imput-back" id="txt_3" onkeypress="return acceptNum(event)" value="" size="2" maxlength="2"/>
-		</div>
-	</div>
-	<a href="javascript: var a = ovulacion ();" class="btn btn-calculator" title="Calcular">Calcular</a>
-	<div id="msj" style="display:none;">
-	<div class="content">
-		<div class="arrow"></div>
-		<div id="msj_cerrar"><a href="javascript: return false;" onclick="mensajeHide();">cerrar</a></div>
-		<div id="msj_txt"></div>
-	</div>
-	</div>
+    <div class="row">
+        <div class="small-6 large-6 columns">
+            <p class="calculator__instructions">Ingresá la cantidad de días de duración de tus últimos 3 ciclos.</p>
+            <p class="calculator__note">Períodos mayores a 20 <br/> días y menores a 45</p>
+        </div>
+        <div class="small-6 large-6 columns">
+            <div class="calculator__fields">
+                <input type="text" name="txt_1" class="field" id="txt_1" onkeypress="return acceptNum(event)" value="" size="2" maxlength="2"/>
+                <input type="text" name="txt_2" class="field" id="txt_2" onkeypress="return acceptNum(event)" value="" size="2" maxlength="2"/>
+                <input type="text" name="txt_3" class="field" id="txt_3" onkeypress="return acceptNum(event)" value="" size="2" maxlength="2"/>
+            </div>
+            <a href="javascript: var a = ovulacion ();" class="calculator__button" title="Calcular">Calcular</a>
+        </div>
+    </div>
 </div>

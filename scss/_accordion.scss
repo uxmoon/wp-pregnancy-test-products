@@ -4,13 +4,17 @@ ACCORDION
 .accordion {
     margin: 0;
     padding: 0;
-    //padding: 0 0 40px;
+    padding-bottom: 40px;
     background: url('../images/bg-accordion-bottom.png') bottom center no-repeat;
     list-style-type: none;
 
+    &.top {
+        margin-top: 0;
+    }
+
     .item {
         // not used
-        a,
+        > a,
         .title {
             color: #b08ea2;
             text-align: center;
@@ -129,10 +133,6 @@ ACCORDION
             width: 100%;
         }
     }
-}
-
-.accordion.top {
-    //margin: 0 auto;
 }
 
 .accordion>.item .content .stand-out {
