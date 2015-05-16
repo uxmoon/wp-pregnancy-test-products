@@ -790,7 +790,10 @@ SITEMAP PAGE
             display: inline-block;
         }
 
-        [class^="icon-"] { font-size: rem-calc(32px); }
+        [class^="icon-"] {
+            font-size: rem-calc(32px);
+            //@include box-shadow(2px, 2px, 0, $white, false);
+        }
     }
 }
 /*
