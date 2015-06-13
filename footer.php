@@ -32,7 +32,7 @@
                 <a href="http://www.elea.com/" target="_blank" title="Laboratorio ELEA">Laboratorio ELEA</a>
             </h2>
         </div>
-        <div class="small-12 medium-6 large-3 columns">
+        <div class="small-12 medium-6 large-3 columns show-for-medium-up">
             <h3>
                 <a href="<?php echo esc_url( home_url() ); ?>/consejos-para-embarazadas/" title="Consejos para embarazadas">Consejos para embarazadas</a>
             </h3>
@@ -50,9 +50,8 @@
             <h3>
                 <a href="<?php echo esc_url( home_url() ); ?>/consultorio-online/" title="Consultorio online">Consultorio online</a>
             </h3>
-
         </div>
-        <div class="small-12 medium-6 large-3 columns">
+        <div class="small-12 medium-6 large-3 columns show-for-medium-up">
             <h3>
                 <a href="<?php echo esc_url( home_url() ); ?>/test-de-embarazo/" title="Test de embarazo">Test de embarazo</a>
             </h3>
@@ -74,14 +73,10 @@
                     'items_wrap' => '<ul class="l-stacked">%3$s</ul>'
                 )
             ); ?>
-
         </div>
-        <div class="small-12 medium-6 large-3 columns">
-
-
-
+        <div class="small-12 medium-6 large-3 columns show-for-medium-up">
         </div>
-        <div class="small-12 medium-6 large-3 columns">
+        <div class="small-12 medium-6 large-3 columns show-for-medium-up">
             <h3>
                 <a href="<?php echo esc_url( home_url() ); ?>/linea-evatest/" title="Línea EVATEST">Línea EVATEST</a>
             </h3>

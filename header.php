@@ -58,7 +58,7 @@
 
     <main class="site-content">
 
-        <nav class="navigation row">
+        <nav class="navigation row show-for-medium-up">
             <div class="large-12 columns">
                 <?php wp_nav_menu(
                     array(

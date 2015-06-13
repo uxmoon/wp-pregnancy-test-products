@@ -1,28 +1,16 @@
 <?php
 
 /* -------------------------------------------------------------------
-JQUERY
-------------------------------------------------------------------- */
-/*if ( !is_admin() ) {
-  wp_deregister_script('jquery');
-  wp_register_script('jquery', ("http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"), false);
-  wp_enqueue_script('jquery');
-}
-
-function my_scripts_method() { wp_enqueue_script( 'slick-script', get_stylesheet_directory_uri() . '/js/slick.min.js', array( 'jquery' ), '', true); }
-add_action( 'wp_enqueue_scripts', 'my_scripts_method' );*/
-
-/* -------------------------------------------------------------------
 PLUGIN MEDIA ELEMENT - CSS LOAD TO SPECIFIC PAGES
 ------------------------------------------------------------------- */
 
 function theme_name_scripts() {
-if ( !is_admin() && is_page(array(6109,6138,6142,7216,13642)) ) {
-    wp_enqueue_style( 'mediaelement-css', get_stylesheet_directory_uri() . '/css/mediaelement/mediaelementplayer.css', array(), '', 'all' );
-    wp_enqueue_style( 'mediaelement-skin-css', get_stylesheet_directory_uri() . '/css/mediaelement/mejs-skins.css', array(), '', 'all' );
-  }
+    if ( !is_admin() && is_page(array(6109,6138,6142,7216,13642)) ) {
+        wp_enqueue_style( 'mediaelement-css', get_stylesheet_directory_uri() . '/css/mediaelement/mediaelementplayer.css', array(), '', 'all' );
+        wp_enqueue_style( 'mediaelement-skin-css', get_stylesheet_directory_uri() . '/css/mediaelement/mejs-skins.css', array(), '', 'all' );
+    }
 }
-add_action( 'wp_enqueue_scripts', 'theme_name_scripts' );
+//add_action( 'wp_enqueue_scripts', 'theme_name_scripts' );
 
 
 /**
@@ -33,12 +21,14 @@ function evatest_scripts() {
 
   /* Add Foundation CSS */
   wp_enqueue_style( 'evatest-app', get_stylesheet_directory_uri() . '/css/app.css' );
-  wp_enqueue_style( 'evatest-jquery-ui-css', 'http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.13/themes/cupertino/jquery-ui.css' );
-  wp_enqueue_style( 'evatest-names', get_stylesheet_directory_uri() . '/css/jPages.css' );
+  //wp_enqueue_style( 'evatest-names', get_stylesheet_directory_uri() . '/css/jPages.css' );
 
   /* Add Foundation JS */
   wp_enqueue_script( 'evatest-modernizr', get_template_directory_uri() . '/bower_components/modernizr/modernizr.js', array(), '1', false );
-  wp_enqueue_script( 'evatest-jquery-ui', 'http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.13/jquery-ui.min.js', array('jquery'), '1', false );
+
+  // "consultorio online" tabs & filter
+  wp_enqueue_style( 'evatest-jquery-ui-css', 'http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.13/themes/cupertino/jquery-ui.css' );
+  wp_enqueue_script( 'evatest-jquery-ui', 'http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.13/jquery-ui.min.js', array('jquery'), '1.8.13', false );
 
   wp_enqueue_script( 'evatest-foundation-js', get_template_directory_uri() . '/bower_components/foundation/js/foundation.min.js', array('jquery'), '1', true );
 
@@ -50,14 +40,15 @@ function evatest_scripts() {
   wp_enqueue_script( 'evatest-jpages',  get_template_directory_uri() . '/js/jPages.min.js', array(), '1', true );
 
   wp_enqueue_script( 'evatest-slick', get_template_directory_uri() . '/js/slick.min.js', array('jquery'), '1', true );
+  wp_register_script( 'evatest-slick', get_template_directory_uri() . '/js/slick.min.js', array('jquery'), '1', true );
   wp_enqueue_script( 'evatest-foundation-app-js', get_template_directory_uri() . '/js/app.js', array('jquery'), '1', true );
-
 
   // if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
   //  wp_enqueue_script( 'comment-reply' );
   // }
 }
 add_action( 'wp_enqueue_scripts', 'evatest_scripts' );
+
 
 /* -------------------------------------------------------------------
 CUSTOM POST TYPE - CONSULTAS
@@ -67,38 +58,38 @@ function create_post_type() {
   register_post_type( 'consultas',
     array(
       'labels'             => array(
-      'name'               => __( 'Consultas' ),
-      'singular_name'      => __( 'Consulta' ),
-      'add_new'            => __( 'Crear nueva' ),
-      'add_new_item'       => __( 'Crear nueva Consulta' ),
-      'edit'               => __( 'Editar' ),
-      'edit_item'          => __( 'Editar consulta' ),
-      'new_item'           => __( 'Nueva consulta' ),
-      'view'               => __( 'Ver consulta' ),
-      'view_item'          => __( 'Ver consulta' ),
-      'search_items'       => __( 'Buscar en consultas' ),
-      'not_found'          => __( 'No se encontraron consultas' ),
-      'not_found_in_trash' => __( 'No se encontraron consultas en la Papelera' )
-    ),
-    'description'         => __( 'Consultorio online para Evatest.' ),
-    'menu_icon'           => 'dashicons-welcome-write-blog',
-    'public'              => true,
-    'has_archive'         => true,
-    'show_ui'             => true,
-    'publicly_queryable'  => true,
-    'exclude_from_search' => false,
-    'capability_type'     => 'post',
-    'menu_position'       => 7,
-    'query_var'           => true,
-    'supports'            => array(
+          'name'               => __( 'Consultas' ),
+          'singular_name'      => __( 'Consulta' ),
+          'add_new'            => __( 'Crear nueva' ),
+          'add_new_item'       => __( 'Crear nueva Consulta' ),
+          'edit'               => __( 'Editar' ),
+          'edit_item'          => __( 'Editar consulta' ),
+          'new_item'           => __( 'Nueva consulta' ),
+          'view'               => __( 'Ver consulta' ),
+          'view_item'          => __( 'Ver consulta' ),
+          'search_items'       => __( 'Buscar en consultas' ),
+          'not_found'          => __( 'No se encontraron consultas' ),
+          'not_found_in_trash' => __( 'No se encontraron consultas en la Papelera' )
+          ),
+      'description'         => __( 'Consultorio online para Evatest.' ),
+      'menu_icon'           => 'dashicons-welcome-write-blog',
+      'public'              => true,
+      'has_archive'         => true,
+      'show_ui'             => true,
+      'publicly_queryable'  => true,
+      'exclude_from_search' => false,
+      'capability_type'     => 'post',
+      'menu_position'       => 7,
+      'query_var'           => true,
+      'supports'            => array(
         'title',
         'editor',
         'excerpt',
         'custom-fields'
-    ),
-    'taxonomies' => array( 'post_tag', 'category')
-    )
-  );
+        ),
+      'taxonomies' => array( 'post_tag', 'category')
+      )
+);
 }
 add_action( 'init', 'create_post_type' );
 
@@ -127,23 +118,23 @@ function my_wpcf7_save($cfdata) {
       16 => "Evatest Tradicional",
       20 => "Otros",
       24 => "Evatest Signos Plus",
-    );
+      );
 
     $newpost = array(
-    'post_title'    => $formcategory[ $formdata['topic'] ],
-    'post_content'  => $formdata['your-message'],
-    'post_category' => array($formdata['topic']),
-    'post_status'   => 'pending',
-    'post_type'     => 'consultas'
-	);
+        'post_title'    => $formcategory[ $formdata['topic'] ],
+        'post_content'  => $formdata['your-message'],
+        'post_category' => array($formdata['topic']),
+        'post_status'   => 'pending',
+        'post_type'     => 'consultas'
+        );
 
     $writer_name  = ucwords(strtolower($data['your-name']));
     $writer_email = strtolower($data['your-email']);
     $newpostid    = wp_insert_post($newpost);
 
-  	add_post_meta($newpostid, 'nombre', $formdata['your-name']);
+    add_post_meta($newpostid, 'nombre', $formdata['your-name']);
     add_post_meta($newpostid, 'email', $formdata['your-email']);
-  }
+}
 }
 add_action('wpcf7_before_send_mail', 'my_wpcf7_save',1);
 
@@ -155,7 +146,7 @@ function remove_meteorslides_scripts() {
   if ( !is_front_page() ) {
     remove_action( 'wp_print_scripts', 'meteorslides_javascript' );
     remove_action( 'wp_enqueue_scripts', 'meteorslides_css' );
-  }
+}
 }
 add_action( 'get_header', 'remove_meteorslides_scripts' );
 
@@ -173,11 +164,11 @@ function wysija_contactform7_subscribe($cfdata) {
   $userData=array(
     'email'   =>  $user_email,
     'firstname' =>  $user_name
-  );
+    );
   $data=array(
     'user'    =>  $userData,
     'user_list' =>  array( 'list_ids'=> $listID )
-  );
+    );
   $userHelper=&WYSIJA::get('user','helper');
   $userHelper->addSubscriber($data);
 }
@@ -206,7 +197,7 @@ function theme_slug_widgets_init() {
         'description'  => __( 'Widgets in this area will be shown on all posts and pages.', 'theme-slug' ),
         'before_title' => '<h1>',
         'after_title'  => '</h1>',
-    ) );
+        ) );
 }
 add_action( 'widgets_init', 'theme_slug_widgets_init' );
 
@@ -244,7 +235,7 @@ function evatheme_setup() {
 
   add_theme_support( 'custom-background', array(
     'default-color' => 'ffffff',
-  ) );
+    ) );
 
   // This theme uses a custom image size for featured images, displayed on "standard" posts.
   add_theme_support( 'post-thumbnails' );
@@ -278,9 +269,9 @@ add_action( 'init', 'disable_wp_emojicons' );
 function disable_emojicons_tinymce( $plugins ) {
   if ( is_array( $plugins ) ) {
     return array_diff( $plugins, array( 'wpemoji' ) );
-  } else {
+} else {
     return array();
-  }
+}
 }
 
 // add google analytics in the footer section
@@ -301,10 +292,36 @@ function add_this_script_footer(){ ?>
     ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
     var s = document.getElementsByTagName('script')[0];
     s.parentNode.insertBefore(ga, s);
-  })();
+})();
 
 </script>
 
 <?php }
 
 add_action('wp_footer', 'add_this_script_footer');
+
+// =========================================================================
+// REMOVE JUNK FROM HEAD
+// =========================================================================
+remove_action('wp_head', 'rsd_link'); // remove really simple discovery link
+remove_action('wp_head', 'wp_generator'); // remove wordpress version
+
+remove_action('wp_head', 'feed_links', 2); // remove rss feed links (make sure you add them in yourself if youre using feedblitz or an rss service)
+remove_action('wp_head', 'feed_links_extra', 3); // removes all extra rss feed links
+
+remove_action('wp_head', 'index_rel_link'); // remove link to index page
+remove_action('wp_head', 'wlwmanifest_link'); // remove wlwmanifest.xml (needed to support windows live writer)
+
+remove_action('wp_head', 'start_post_rel_link', 10, 0); // remove random post link
+remove_action('wp_head', 'parent_post_rel_link', 10, 0); // remove parent post link
+remove_action('wp_head', 'adjacent_posts_rel_link', 10, 0); // remove the next and previous post links
+remove_action('wp_head', 'adjacent_posts_rel_link_wp_head', 10, 0 );
+
+remove_action('wp_head', 'wp_shortlink_wp_head', 10, 0 );
+
+
+/* Custom ajax loader */
+add_filter('wpcf7_ajax_loader', 'my_wpcf7_ajax_loader');
+function my_wpcf7_ajax_loader () {
+    return  get_bloginfo('stylesheet_directory') . '/images/preloader2.gif';
+}
