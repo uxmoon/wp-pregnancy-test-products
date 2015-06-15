@@ -171,12 +171,19 @@ featured sections
 
         color: $opera-mauve;
         font-family: $font-tex;
-        font-size: rem-calc(30px);
-        line-height: 35px;
+        //font-size: rem-calc(30px);
+        //line-height: 35px;
+        @include font-size(18px);
+        line-height: 1.2;
         text-transform: uppercase;
         text-align: center;
+
+        @media #{$medium-up} {
+            @include font-size(30px);
+        }
     }
 }
+
  .item {
 
     .thumb {
@@ -193,6 +200,10 @@ featured sections
         font-size: rem-calc(26px);
         line-height: 28px;
         font-family: $font-decker;
+
+        @media #{$small-only} {
+            text-align: center;
+        }
         //color: #f5cade;
 
         strong {
@@ -230,13 +241,25 @@ background: url('../images/drop-shadow-280.png') 0 190px no-repeat;
     &__title {
         color: $white;
         font-family: $font-tex-bold;
-        font-size: 24px;
-        line-height: 26px;
+        //font-size: 24px;
+        //line-height: 26px;
         text-align: center;
+        @include font-size(18px);
+        text-transform: uppercase;
 
         strong {
-            display: block;
-            text-transform: uppercase;
+            font-weight: normal;
+        }
+
+        @media #{$medium-up} {
+            @include font-size(24px);
+            line-height: 26px;
+            text-transform: none;
+
+            strong {
+                display: block;
+                text-transform: uppercase;
+            }
         }
     }
 
@@ -336,17 +359,30 @@ product showcase
     padding-top: 30px;
 
     &__title {
-        font-size: rem-calc(40px);
         font-family: $font-tex;
-        line-height: 42px;
+        // font-size: rem-calc(40px);
+        // line-height: 42px;
         margin: 0 0 25px;
         //color: #b08ea2;
+
+        @include font-size(18px);
+        line-height: 1.2;
+        text-transform: uppercase;
+        text-align: center;
+
+        @media #{$medium-up} {
+            @include font-size(42px);
+            line-height: 42px;
+        }
     }
+
     .product {
         /*float: left;
         display: inline;*/
-        width: 260px;
-        height: 565px;
+        @media #{$medium-up} {
+            width: 260px;
+            height: 565px;
+        }
         //margin: 0 20px 0 0;
 
         a {
@@ -359,20 +395,30 @@ product showcase
 
         .heading {
             //padding-top: 340px;
-            font-size: rem-calc(32px);
-            line-height: 35px;
-            font-family: $font-tex-bold;
+
+            // font-size: rem-calc(32px);
+            // line-height: 35px;
             margin-bottom: 10px;
 
-            strong,
-            span {
-                display: block;
-                padding-left: 20px;
+            font-family: $font-tex-bold;
+            @include font-size(24px);
+
+            @media #{$medium-up} {
+                @include font-size(32px);
+                line-height: 1.2;
+
+                strong,
+                span {
+                    display: block;
+                    padding-left: 20px;
+                }
             }
+
 
             strong {
                 text-transform: uppercase;
             }
+
             span {
                 //padding: 0 0 0 40px;
             }
@@ -425,13 +471,20 @@ product showcase
         }
 
         p {
-            font-family: $font-decker;
-            font-size: 15px;
-            line-height: 20px;
             margin: 0;
+
+            font-family: $font-decker;
+            @include font-size(15px);
+            line-height: 1.2;
+
+            @media #{$medium-up} {
+                padding: 0 30px;
+                height: 120px;
+            }
+
+            // font-size: 15px;
+            // line-height: 20px;
             //color: #b08ea2;
-            padding: 0 30px;
-            height: 120px;
         }
 
         &.last { margin: 0; }
