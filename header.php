@@ -18,11 +18,16 @@
 
     <?php wp_head(); ?>
 
+    <script src="http://localhost:35729/livereload.js?nioytj"></script>
+
 </head>
 <body <?php body_class(); ?>>
 
+<div class="off-canvas-wrap" data-offcanvas>
+<div class="inner-wrap">
+
     <header class="site-header">
-        <div class="bg">
+        <div class="bg show-for-large-up">
             <div class="row">
                 <div class="small-12 medium-6 large-6 columns">
                     <h1 class="logo">
@@ -54,19 +59,39 @@
                 </div>
             </div>
         </div>
+
+        <div class="hide-for-large-up">
+            <h1 class="logo">
+                <a href="<?php echo esc_url( home_url() ); ?>" title="Evatest">Evatest</a>
+            </h1>
+            <a class="left-off-canvas-toggle mobile-navigation" href="#">Menu</a>
+        </div>
+
+        <aside class="left-off-canvas-menu hide-for-large-up">
+            <?php wp_nav_menu(
+                array(
+                    'menu'      => 'mobile',
+                    'container' => '',
+                    'menu_class' => 'mobile-nav'
+                )
+            ); ?>
+        </aside>
+
     </header>
 
     <main class="site-content">
 
-        <nav class="navigation row show-for-medium-up">
-            <div class="large-12 columns">
-                <?php wp_nav_menu(
-                    array(
-                        'menu'       => 'evatest',
-                        'container' => ''
-                        //'menu_class' => 'miclase'
-                        //'items_wrap' => '<ul class="l-inline clearfix menu">%3$s</ul>'
-                    )
-                ); ?>
-            </div>
-        </nav>
+        <div class="show-for-large-up">
+            <nav class="navigation row">
+                <div class="large-12 columns">
+                    <?php wp_nav_menu(
+                        array(
+                            'menu'       => 'evatest',
+                            'container' => ''
+                            //'menu_class' => 'miclase'
+                            //'items_wrap' => '<ul class="l-inline clearfix menu">%3$s</ul>'
+                        )
+                    ); ?>
+                </div>
+            </nav>
+        </div>

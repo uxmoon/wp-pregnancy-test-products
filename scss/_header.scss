@@ -1,9 +1,66 @@
 .site-header {
-    height: 130px;
-    background: $white url('../images/bg-body.png') top left repeat-x;
+    height: 40px;
+    background-color: $red-violet;
+    margin-bottom: 10px;
 
-    .bg {
-        background: transparent url('../images/bg-header.png') top center no-repeat;
-        padding-top: 20px;
+    @media #{$large-up} {
+        height: 130px;
+        background: $white url('../images/bg-body.png') top left repeat-x;
+
+        .bg {
+            background: transparent url('../images/bg-header.png') top center no-repeat;
+            padding-top: 20px;
+        }
     }
+}
+
+.mobile-navigation {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+
+    text-transform: uppercase;
+    color: $white;
+    font-family: $font-tex-bold;
+    font-size: rem-calc(14);
+
+    &:hover {
+        color: $opera-mauve;
+    }
+}
+
+// h1.logo {
+//     font-size: rem-calc(18);
+//     line-height: 1;
+// }
+
+
+.mobile-nav {
+    list-style-type: none;
+    margin: 0;
+    li {
+        padding: 0;
+        padding-top: 4px;
+        padding-bottom: 4px;
+        border-bottom: 1px solid #999;
+        font-size: rem-calc(14);
+
+        a {
+            color: #fff;
+        }
+
+        > ul {
+            margin: 0;
+            list-style-type: none;
+
+            > li {
+                padding-left: 15px;
+
+                &:last-child {
+                    border-bottom: none;
+                }
+            }
+        }
+    }
+
 }

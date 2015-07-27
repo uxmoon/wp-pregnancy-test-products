@@ -109,6 +109,11 @@
     <p class="developer"><a href="http://guibomedia.com/" title="Desarrollado por GuiboMedia">Powered by GuiboMedia</a></p>
 </footer>
 
+<!-- close the off-canvas menu -->
+<a class="exit-off-canvas"></a>
+</div>
+</div>
+
 <!--[if lt IE 9]>
     <script src="<?php echo esc_url( get_template_directory_uri() ); ?>/js/ie/rem.min.js"></script>
 <![endif]-->
