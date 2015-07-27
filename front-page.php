@@ -140,7 +140,19 @@ Template Name: Front page
 						</div>
 					</div>
 
-					<div class="callout">
+                    <div class="product-video">
+                        <a href="#" data-icon="video">
+                            <span class="visually-hidden">Evatest Signos Plus</span> Video
+                        </a>
+                    </div>
+
+					<div class="product-link">
+						<a href="#" data-icon="link">
+							Ver más
+						</a>
+					</div>
+
+					<div class="callout hide">
 						<ul class="l-inline clearfix">
 							<li class="icon demo"><a href="/Evatest_Signos_Plus/" class="fancybox fancybox.iframe view-demo" title="Evatest Signos Plus - Demo">Demo</a></li>
 							<li class="icon more"><a href="<?php echo esc_url( home_url() ); ?>/linea-evatest/evatest-signos-plus/" title="Ver más">Ver más</a></li>
