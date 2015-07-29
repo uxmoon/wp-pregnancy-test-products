@@ -1,24 +1,26 @@
 @import "base";
-
 @import "mixins";
-
 @import "fonts";
 
 @import "header";
-
 @import "footer";
-
 @import "menu";
-
 @import "accordion";
-
 @import "form-contact";
-
 @import "names";
-
 @import "faq";
 
 @import "fancybox";
+
+@media #{$medium-up} {
+    padding-left: rem-calc(15px);
+    padding-right: rem-calc(15px);
+}
+
+@media #{$large-up} {
+    padding-left: rem-calc(20px);
+    padding-right: rem-calc(20px);
+}
 
 body {
     @media #{$large-up} {
@@ -36,8 +38,11 @@ body {
     margin: 0;
 
     @media #{$small-up} {
-        text-align: center;
-        text-transform: uppercase;
+        // text-align: center;
+        // text-transform: uppercase;
+        margin-left: auto;
+        margin-right: auto;
+        @include replace-text-with-image('../images/logo-footer.png', 130px, 53px, false);
     }
 
     @media #{$large-up} {
@@ -48,14 +53,17 @@ body {
             height: 134px;
         }
     }
-
 }
 
 .logo--footer {
-    width: 130px;
-    height: 53px;
-    background: transparent url('../images/logo-footer.png') 0 0 no-repeat;
-    text-indent: -9000px;
+    line-height: 1;
+    margin: 0;
+    @include replace-text-with-image('../images/logo-footer.png', 130px, 53px, false);
+
+    @media #{$small-only} {
+        margin-left: auto;
+        margin-right: auto;
+    }
 
     > a {
         display: block;
@@ -195,10 +203,12 @@ featured sections
  .item {
 
     .thumb {
+        margin-left: auto;
+        margin-right: auto;
         display: block;
         padding: 0 0 16px;
 
-        //width: 280px;
+        width: 280px;
         //height: 190px;
 
         background: url('../images/drop-shadow-280.png') bottom center no-repeat;
@@ -230,10 +240,10 @@ featured sections
     }
 }
 
-.item.last {
-margin: 0;
-background: url('../images/drop-shadow-280.png') 0 190px no-repeat;
-}
+// .item.last {
+// margin: 0;
+// background: url('../images/drop-shadow-280.png') 0 190px no-repeat;
+// }
 
 // Calculadora de Ovulación
 .calculator {
@@ -834,7 +844,7 @@ SITEMAP PAGE
         line-height: 1;
         text-align: right;
 
-        .site-footer & { text-align: left; }
+        // .site-footer & { text-align: center; }
     }
 
     &__hours {
@@ -844,7 +854,7 @@ SITEMAP PAGE
         line-height: 1;
         text-align: right;
 
-        .site-footer & { text-align: left; }
+        // .site-footer & { text-align: left; }
     }
 
     &__icons {
@@ -852,7 +862,7 @@ SITEMAP PAGE
         list-style-type: none;
         text-align: right;
 
-        .site-footer & { text-align: left; }
+        // .site-footer & { text-align: left; }
 
         > li {
             display: inline-block;
@@ -864,26 +874,6 @@ SITEMAP PAGE
         }
     }
 }
-/*
-.site-footer .contact-info {
-    &__phone {
-        text-align: left;
-        font-size: rem-calc(23px);
-    }
-
-    &__hours {
-        text-align: left;
-    }
-
-    &__icons {
-        .site-footer & {
-            text-align: left;
-        }
-
-        [class^="icon-"] { font-size: rem-calc(29px); }
-    }
-}
-*/
 
 // IE8 support
 @import 'ie';
@@ -1105,3 +1095,8 @@ jPages
 .wp-paginate-comments .current {}
 .wp-paginate-comments .page {}
 .wp-paginate-comments .prev, .wp-paginate-comments .next {}
+
+
+.slider-home {
+    margin-left: 0;
+}

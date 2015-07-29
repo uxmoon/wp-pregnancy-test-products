@@ -13,16 +13,19 @@
     }
 
     .developer {
-        position: absolute;
-        bottom: 15px;
-        right: 20px;
+        @media #{$medium-up} {
+            position: absolute;
+            bottom: 15px;
+            right: 20px;
+        }
 
         > a {
+            @media #{$small-only} {
+                float: right;
+            }
+
             display: block;
-            width: 90px;
-            height: 27px;
-            background: url('../images/logo-guibomedia.gif') 0 0 no-repeat;
-            text-indent: -9999px;
+            @include replace-text-with-image('../images/logo-guibomedia.gif', 90px, 27px, false);
         }
     }
 
@@ -76,4 +79,14 @@
             text-decoration: none;
         }
     }
+
+    // .contact-info {
+    //     position: relative;
+
+    //     &__icons {
+    //         position: absolute;
+    //         top: 0;
+    //         right: 0;
+    //     }
+    // }
 }
