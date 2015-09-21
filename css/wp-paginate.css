@@ -1,0 +1,7 @@
+.wp-paginate .current {
+color: #a70264;
+background: transparent;
+border: none;
+margin-right: 4px;
+padding: 3px 6px;
+}

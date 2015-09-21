@@ -1,97 +1,77 @@
 <!DOCTYPE html>
-<!--[if lt IE 9]> <html <?php language_attributes(); ?> class="no-js lt-ie10 lt-ie9"> <![endif]-->
-<!--[if IE 9]> <html <?php language_attributes(); ?> class="no-js lt-ie10"> <![endif]-->
-<!--[if gt IE 9]><!--> <html <?php language_attributes(); ?> class="no-js"> <!--<![endif]-->
+<html <?php language_attributes(); ?>>
 <head>
-
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <title><?php wp_title(); ?></title>
     <link rel="shortcut icon" href="http://www.evatest.com/favicon.ico" type="image/x-icon">
-
-    <!--[if lt IE 9]>
-        <script src="<?php echo esc_url( get_template_directory_uri() ); ?>/js/ie/html5shiv.js"></script>
-        <script src="<?php echo esc_url( get_template_directory_uri() ); ?>/js/ie/nwmatcher-1.2.5-min.js"></script>
-        <script src="<?php echo esc_url( get_template_directory_uri() ); ?>/js/ie/selectivizr-1.0.3b.js"></script>
-        <script src="<?php echo esc_url( get_template_directory_uri() ); ?>/js/ie/respond.min.js"></script>
-    <![endif]-->
-
     <?php wp_head(); ?>
-
-    <script src="http://localhost:35729/livereload.js?nioytj"></script>
-
 </head>
 <body <?php body_class(); ?>>
 
 <div class="off-canvas-wrap" data-offcanvas>
-<div class="inner-wrap">
+    <div class="inner-wrap">
 
-    <header class="site-header">
-        <div class="bg show-for-large-up">
-            <div class="row">
-                <div class="small-12 medium-6 large-6 columns">
-                    <h1 class="logo">
-                        <a href="<?php echo esc_url( home_url() ); ?>" title="Evatest">Evatest</a>
-                    </h1>
-                </div>
-                <div class="small-12 medium-6 large-6 columns">
-                    <div class="contact-info">
-                        <p class="contact-info__phone"><i class="icon-phone"></i> 0800-333-4272</p>
-                        <p class="contact-info__hours">Lunes a Viernes 10 a 17hs</p>
-                        <ul class="contact-info__icons">
-                            <li>
-                                <a href="<?php echo esc_url( home_url() ); ?>" title="Inicio">
-                                    <i class="icon-home"></i> <span class="visually-hidden">Inicio</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="mailto:info@elea.com" title="Contáctanos" target="_blank">
-                                    <i class="icon-mail"></i> <span class="visually-hidden">Contáctenos</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="https://www.facebook.com/Evatest" title="Seguínos en Facebook" target="_blank">
-                                    <i class="icon-social"></i> <span class="visually-hidden">Seguinos en Facebook</span>
-                                </a>
-                            </li>
-                        </ul>
+        <header class="site-header">
+            <div class="site-header__container">
+                <div class="row">
+                    <div class="small-12 columns">
+
+                        <a class="hide-for-large-up left-off-canvas-toggle mobile-menu" href="#"><i class="fa fa-bars"></i> Menu</a>
+
+                        <h1 class="logo"><a href="<?php bloginfo('url'); ?>" title="<?php bloginfo('name'); ?>"><?php bloginfo('name'); ?></a></h1>
+
+                        <div class="show-for-large-up">
+                            <div class="contact">
+                                <p>
+                                    <span class="contact__phone"><i class="fa fa-phone"></i> 0800 333 4272</span>
+                                    <br>
+                                    <span class="contact__hours">Lunes a Viernes 9 a 18hs.</span>
+                                </p>
+                            </div>
+
+                            <ul class="contact-icons">
+                                <li>
+                                    <a href="<?php bloginfo('url'); ?>" title="<?php bloginfo('name'); ?>"><i class="fa fa-home"></i><span class="visually-hidden"><?php bloginfo('name'); ?></span></a>
+                                </li>
+                                <li>
+                                    <a href="mailto:info@elea.com" title="Envianos un mail"><i class="fa fa-envelope"></i><span class="visually-hidden">Envianos un mail</span></a>
+                                </li>
+                                <li>
+                                    <a href="https://www.facebook.com/Evatest" title="Seguinos en Facebook"><i class="fa fa-facebook-official"></i><span class="visually-hidden">Seguinos en Facebook</span></a>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div>
 
-        <div class="hide-for-large-up">
-            <h1 class="logo">
-                <a href="<?php echo esc_url( home_url() ); ?>" title="Evatest">Evatest</a>
-            </h1>
-            <a class="left-off-canvas-toggle mobile-navigation" href="#">Menu</a>
-        </div>
-
-        <aside class="left-off-canvas-menu hide-for-large-up">
-            <?php wp_nav_menu(
-                array(
-                    'menu'      => 'mobile',
-                    'container' => '',
-                    'menu_class' => 'mobile-nav'
-                )
-            ); ?>
-        </aside>
-
-    </header>
-
-    <main class="site-content">
-
-        <div class="show-for-large-up">
-            <nav class="navigation row">
-                <div class="large-12 columns">
+                <aside class="left-off-canvas-menu">
+                    <h1><a href="/"><?php bloginfo('name'); ?></a></h1>
+                    <p>
+                        <a class="exit-off-canvas">Cerrar menú</a>
+                    </p>
                     <?php wp_nav_menu(
                         array(
-                            'menu'       => 'evatest',
-                            'container' => ''
-                            //'menu_class' => 'miclase'
-                            //'items_wrap' => '<ul class="l-inline clearfix menu">%3$s</ul>'
+                            'menu'      => 'mobile',
+                            'container' => '',
+                            'menu_class' => 'mobile-nav'
                         )
                     ); ?>
+                </aside>
+            </div>
+        </header>
+
+        <main class="site-content">
+            <div class="row">
+                <div class="small-12 columns">
+                    <nav class="site-navigation show-for-large-up" role="navigation">
+                        <?php wp_nav_menu(
+                            array(
+                                'menu'      => 'evatest',
+                                'container' => ''
+                            )
+                        ); ?>
+                    </nav>
                 </div>
-            </nav>
-        </div>
+            </div>

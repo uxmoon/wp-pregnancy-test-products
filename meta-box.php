@@ -1,77 +1,106 @@
 <?php
-/**
- * Registering meta boxes
- *
- * All the definitions of meta boxes are listed below with comments.
- * Please read them CAREFULLY.
- *
- * You also should read the changelog to know what has been changed before updating.
- *
- * For more information, please visit:
- * @link http://www.deluxeblogtips.com/meta-box/
- */
-
-
 add_filter( 'rwmb_meta_boxes', 'elea_register_meta_boxes' );
 
-/**
- * Register meta boxes
- *
- * Remember to change "elea" to actual prefix in your project
- *
- * @return void
- */
 function elea_register_meta_boxes( $meta_boxes )
 {
-	/**
-	 * prefix of meta keys (optional)
-	 * Use underscore (_) at the beginning to make keys hidden
-	 * Alt.: You also can make prefix empty to disable it
-	 */
-	// Better has an underscore as last sign
-	$prefix = 'elea_';
 
-	// 1st meta box
-	$meta_boxes[] = array(
-		// Meta box id, UNIQUE per meta box. Optional since 4.1.5
-		'id' => 'standard',
+    // Better has an underscore as last sign
+    $prefix = 'elea_';
 
-		// Meta box title - Will appear at the drag and drop handle bar. Required.
-		'title' => __( 'Link', 'meta-box' ),
+    // 1st meta box
+    $meta_boxes[] = array(
+        // Meta box id, UNIQUE per meta box. Optional since 4.1.5
+        'id' => 'standard',
 
-		// Post types, accept custom post types as well - DEFAULT is array('post'). Optional.
-		'pages' => array( 'evatest_slider' ),
+        // Meta box title - Will appear at the drag and drop handle bar. Required.
+        'title' => __( 'Link', 'meta-box' ),
 
-		// Where the meta box appear: normal (default), advanced, side. Optional.
-		'context' => 'normal',
+        // Post types, accept custom post types as well - DEFAULT is array('post'). Optional.
+        'pages' => array( 'evatest_slider' ),
 
-		// Order of meta box: high (default), low. Optional.
-		'priority' => 'high',
+        // Where the meta box appear: normal (default), advanced, side. Optional.
+        'context' => 'normal',
 
-		// Auto save: true, false (default). Optional.
-		'autosave' => true,
+        // Order of meta box: high (default), low. Optional.
+        'priority' => 'high',
 
-		// List of meta fields
-		'fields' => array(
-			array(
-				'name'             => __( 'Foto', 'meta-box' ),
-				'id'               => "{$prefix}img_slide",
-				'type'             => 'image_advanced',
-				'max_file_uploads' => 1,
-			),
-			// URL
-			array(
-				'name'  => __( 'Vínculo', 'meta-box' ),
-				'id'    => "{$prefix}url",
-				'desc'  => __( '', 'meta-box' ),
-				'type'  => 'text',
-				'std'   => __( '', 'your-prefix' ),
-				'clone' => false,
-			)
+        // Auto save: true, false (default). Optional.
+        'autosave' => true,
 
-		)
-	);
+        // List of meta fields
+        'fields' => array(
+            array(
+                'name'             => __( 'Foto', 'meta-box' ),
+                'id'               => "{$prefix}img_slide",
+                'type'             => 'image_advanced',
+                'max_file_uploads' => 1,
+            ),
+            array(
+                'name'             => __( 'Foto Mobile', 'meta-box' ),
+                'id'               => "{$prefix}img_slide_mobile",
+                'type'             => 'image_advanced',
+                'max_file_uploads' => 1,
+            ),
+            // URL
+            array(
+                'name'  => __( 'Vínculo', 'meta-box' ),
+                'id'    => "{$prefix}url",
+                'desc'  => __( '', 'meta-box' ),
+                'type'  => 'text',
+                'std'   => __( '', 'your-prefix' ),
+                'clone' => false,
+            )
 
-	return $meta_boxes;
+        )
+    );
+
+    $meta_boxes[] = array(
+        'id'       => 'home_products',
+        'title'    => __( 'Productos destacados', 'meta-box' ),
+        'pages'    => array( 'product' ),
+        'context'  => 'normal',
+        'priority' => 'high',
+        'autosave' => true,
+        'fields' => array(
+            array(
+                'name'             => __( 'Foto', 'meta-box' ),
+                'id'               => "{$prefix}img_slide",
+                'type'             => 'image_advanced',
+                'max_file_uploads' => 1,
+            ),
+            array(
+                'name'             => __( 'Foto Mobile', 'meta-box' ),
+                'id'               => "{$prefix}img_slide_mobile",
+                'type'             => 'image_advanced',
+                'max_file_uploads' => 1,
+            ),
+            array(
+                'name' => __( 'Descripción', 'meta-box' ),
+                'desc' => __( '', 'meta-box' ),
+                'id'   => "{$prefix}product_description",
+                'type' => 'textarea',
+                'cols' => 20,
+                'rows' => 3,
+            ),
+            array(
+                'name'  => __( 'Vínculo', 'meta-box' ),
+                'desc'  => __( '', 'meta-box' ),
+                'id'    => "{$prefix}url",
+                'type'  => 'text',
+                'std'   => __( '', 'your-prefix' ),
+                'clone' => false,
+            ),
+            array(
+                'name'  => __( 'Demo', 'meta-box' ),
+                'id'    => "{$prefix}product_demo",
+                'desc'  => __( 'Vínculo a la página que contiene el vídeo ej. /evatest_signos_plus/', 'meta-box' ),
+                'type'  => 'text',
+                'std'   => __( '', 'meta-box' ),
+                'clone' => false,
+            ),
+        )
+    );
+
+    return $meta_boxes;
 }
 

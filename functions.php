@@ -1,48 +1,74 @@
 <?php
 
+function my_init()
+{
+    if (!is_admin())
+    {
+        wp_deregister_script('jquery');
+
+        // Load a copy of jQuery from the Google API CDN
+        // The last parameter set to TRUE states that it should be loaded
+        // in the footer.
+        wp_register_script('jquery', 'https://code.jquery.com/jquery-1.11.3.min.js', false, '1.11.0', true);
+
+        wp_enqueue_script('jquery');
+    }
+}
+add_action('init', 'my_init');
+
 /* -------------------------------------------------------------------
 PLUGIN MEDIA ELEMENT - CSS LOAD TO SPECIFIC PAGES
 ------------------------------------------------------------------- */
 
 function theme_name_scripts() {
-    if ( !is_admin() && is_page(array(6109,6138,6142,7216,13642)) ) {
-        wp_enqueue_style( 'mediaelement-css', get_stylesheet_directory_uri() . '/css/mediaelement/mediaelementplayer.css', array(), '', 'all' );
-        wp_enqueue_style( 'mediaelement-skin-css', get_stylesheet_directory_uri() . '/css/mediaelement/mejs-skins.css', array(), '', 'all' );
-    }
+if ( !is_admin() && is_page(array(6109,6138,6142,7216,13642)) ) {
+    wp_enqueue_style( 'mediaelement-css', get_stylesheet_directory_uri() . '/css/mediaelement/mediaelementplayer.css', array(), '', 'all' );
+    wp_enqueue_style( 'mediaelement-skin-css', get_stylesheet_directory_uri() . '/css/mediaelement/mejs-skins.css', array(), '', 'all' );
+  }
 }
-//add_action( 'wp_enqueue_scripts', 'theme_name_scripts' );
+add_action( 'wp_enqueue_scripts', 'theme_name_scripts' );
 
-
-/**
- * Enqueue scripts and styles.
- */
+/* -------------------------------------------------------------------
+PLUGIN MEDIA ELEMENT - CSS LOAD TO SPECIFIC PAGES
+------------------------------------------------------------------- */
 function evatest_scripts() {
-  wp_enqueue_style( 'evatest-style', get_stylesheet_uri() );
+  //wp_enqueue_style( 'evatheme-style', get_stylesheet_uri() );
 
-  /* Add Foundation CSS */
-  wp_enqueue_style( 'evatest-app', get_stylesheet_directory_uri() . '/css/app.css' );
-  //wp_enqueue_style( 'evatest-names', get_stylesheet_directory_uri() . '/css/jPages.css' );
+  // CSS
+  wp_enqueue_style( 'evatheme-stylesheet', get_stylesheet_directory_uri() . '/css/app.css' );
+  //wp_enqueue_style( 'evatheme-font-awesome', 'https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css');
+  // wp_enqueue_style( 'evatheme-consultas', get_stylesheet_directory_uri() . '/css/consultas.css' );
+  // wp_enqueue_style( 'evatheme-fancybox', get_stylesheet_directory_uri() . '/css/fancybox.css' );
 
-  /* Add Foundation JS */
-  wp_enqueue_script( 'evatest-modernizr', get_template_directory_uri() . '/bower_components/modernizr/modernizr.js', array(), '1', false );
+  // MODERNIZR
+  wp_enqueue_script( 'evatheme-modernizr', 'https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js', array(), '1', false );
+  wp_enqueue_script( 'evatheme-jquery-ui', 'http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.13/jquery-ui.min.js', array('jquery'), '1.8.13', true );
+  wp_enqueue_script( 'evatheme-app', get_template_directory_uri() . '/js/evatest.min.js', array('jquery'), '1', true );
 
-  // "consultorio online" tabs & filter
-  wp_enqueue_style( 'evatest-jquery-ui-css', 'http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.13/themes/cupertino/jquery-ui.css' );
-  wp_enqueue_script( 'evatest-jquery-ui', 'http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.13/jquery-ui.min.js', array('jquery'), '1.8.13', false );
+  // FOUNDATION
+  // wp_enqueue_script( 'evatheme-foundation-js', get_template_directory_uri() . '/js/foundation/foundation.js', array('jquery'), '1', true );
+  // wp_enqueue_script( 'evatheme-foundation-js-tab', get_template_directory_uri() . '/js/foundation/foundation.tab.js', array('jquery'), '1', true );
+  // wp_enqueue_script( 'evatheme-foundation-js-offcanvas', get_template_directory_uri() . '/js/foundation/foundation.offcanvas.js', array('jquery'), '1', true );
+  // wp_enqueue_script( 'evatheme-foundation-js-interchange', get_template_directory_uri() . '/js/foundation/foundation.interchange.js', array('jquery'), '1', true );
 
-  wp_enqueue_script( 'evatest-foundation-js', get_template_directory_uri() . '/bower_components/foundation/js/foundation.min.js', array('jquery'), '1', true );
+  // CONSULTORIO ONLINE
+  // wp_enqueue_script( 'evatheme-jquery-ui', 'http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.13/jquery-ui.min.js', array('jquery'), '1.8.13', true );
 
-  wp_enqueue_script( 'evatest-calculadora', get_template_directory_uri() . '/js/calculadora.min.js', array('jquery'), '1', true );
-  wp_enqueue_script( 'evatest-youtube', 'http://www.youtube.com/player_api', array(), '1', true );
-  wp_enqueue_script( 'evatest-archives', get_template_directory_uri() . '/js/archives.js', array(), '1', true );
+  // FANCYBOX SOON TO BE REPLACED WITH FOUNDATION REVEAL
+  // wp_enqueue_script( 'evatest-fancybox-pack', get_template_directory_uri() . '/fancybox/jquery.fancybox.pack.js', array('jquery'), '1', true );
 
-  wp_enqueue_script( 'evatest-fancybox', get_template_directory_uri() . '/fancybox/jquery.fancybox.js', array('jquery'), '1', true );
-  wp_enqueue_script( 'evatest-jpages',  get_template_directory_uri() . '/js/jPages.min.js', array(), '1', true );
+  // SLICK SLIDER
+  // wp_enqueue_script( 'evatheme-slick', get_template_directory_uri() . '/js/slick/slick.min.js', array('jquery'), '1', true );
 
-  wp_enqueue_script( 'evatest-slick', get_template_directory_uri() . '/js/slick.min.js', array('jquery'), '1', true );
-  wp_register_script( 'evatest-slick', get_template_directory_uri() . '/js/slick.min.js', array('jquery'), '1', true );
-  wp_enqueue_script( 'evatest-foundation-app-js', get_template_directory_uri() . '/js/app.js', array('jquery'), '1', true );
+  // APP
+  // wp_enqueue_script( 'evatheme-app', get_template_directory_uri() . '/js/app.js', array('jquery'), '1', true );
 
+  // if ( is_front_page() || is_home() ) {
+  //   wp_enqueue_script( 'evatest-youtube', 'http://www.youtube.com/player_api', array(), '1', true );
+  // }
+
+  //wp_enqueue_script( 'evatest-archives', get_template_directory_uri() . '/js/archives.js', array(), '1', true );
+  //wp_enqueue_script( 'evatest-jpages',  get_template_directory_uri() . '/js/jPages.min.js', array(), '1', true );
   // if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
   //  wp_enqueue_script( 'comment-reply' );
   // }
@@ -142,36 +168,36 @@ add_action('wpcf7_before_send_mail', 'my_wpcf7_save',1);
 PLAYER METEOR SLIDES
 ------------------------------------------------------------------- */
 
-function remove_meteorslides_scripts() {
-  if ( !is_front_page() ) {
-    remove_action( 'wp_print_scripts', 'meteorslides_javascript' );
-    remove_action( 'wp_enqueue_scripts', 'meteorslides_css' );
-}
-}
-add_action( 'get_header', 'remove_meteorslides_scripts' );
+// function remove_meteorslides_scripts() {
+//   if ( !is_front_page() ) {
+//     remove_action( 'wp_print_scripts', 'meteorslides_javascript' );
+//     remove_action( 'wp_enqueue_scripts', 'meteorslides_css' );
+// }
+// }
+// add_action( 'get_header', 'remove_meteorslides_scripts' );
 
 /* -------------------------------------------------------------------
 NEWSLETTER - DESACTIVADO
 ------------------------------------------------------------------- */
 
-function wysija_contactform7_subscribe($cfdata) {
-  $formdata = $cfdata->posted_data;
-  /* if you use different name/id attribute for CF7 please change 'your-name' and 'your-email' */
-  $user_name = $formdata['your-name'];
-  $user_email = $formdata['your-email'];
-  /* change this according to your user list id you want this user to subscribe, */
-  $listID = array( '1' );
-  $userData=array(
-    'email'   =>  $user_email,
-    'firstname' =>  $user_name
-    );
-  $data=array(
-    'user'    =>  $userData,
-    'user_list' =>  array( 'list_ids'=> $listID )
-    );
-  $userHelper=&WYSIJA::get('user','helper');
-  $userHelper->addSubscriber($data);
-}
+// function wysija_contactform7_subscribe($cfdata) {
+//   $formdata = $cfdata->posted_data;
+//   /* if you use different name/id attribute for CF7 please change 'your-name' and 'your-email' */
+//   $user_name = $formdata['your-name'];
+//   $user_email = $formdata['your-email'];
+//    change this according to your user list id you want this user to subscribe,
+//   $listID = array( '1' );
+//   $userData=array(
+//     'email'   =>  $user_email,
+//     'firstname' =>  $user_name
+//     );
+//   $data=array(
+//     'user'    =>  $userData,
+//     'user_list' =>  array( 'list_ids'=> $listID )
+//     );
+//   $userHelper=&WYSIJA::get('user','helper');
+//   $userHelper->addSubscriber($data);
+// }
 //add_action('wpcf7_mail_sent', 'wysija_contactform7_subscribe', 1);
 
 /* -------------------------------------------------------------------
@@ -185,6 +211,9 @@ function mqw_mas_extensiones ( $existing_mimes=array() ) {
 }
 add_filter('upload_mimes', 'mqw_mas_extensiones');
 
+/* -------------------------------------------------------------------
+META BOX
+------------------------------------------------------------------- */
 include 'meta-box.php';
 
 /* -------------------------------------------------------------------
@@ -323,5 +352,5 @@ remove_action('wp_head', 'wp_shortlink_wp_head', 10, 0 );
 /* Custom ajax loader */
 add_filter('wpcf7_ajax_loader', 'my_wpcf7_ajax_loader');
 function my_wpcf7_ajax_loader () {
-    return  get_bloginfo('stylesheet_directory') . '/images/preloader2.gif';
+    return  get_bloginfo('stylesheet_directory') . '/images/preloader.gif';
 }

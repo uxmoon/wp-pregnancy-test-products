@@ -1,22 +1,25 @@
-<?php wp_nav_menu(
+<?php
+wp_nav_menu(
     array(
-        'menu'       => 'productos',
-        'items_wrap' => '<ul class="l-inline clearfix menu-products">%3$s</ul>'
-        )
-    );
+        'container'       => 'nav',
+        'container_class' => 'nav-products',
+        'menu'            => 'productos',
+    )
+);
+
+$upload_dir = wp_upload_dir();
 ?>
 
-<div class="row">
-    <div class="large-8 large-push-4 columns">
-        <img src="<?php echo get_stylesheet_directory_uri() ?>/images/linea-evatest/tradicional.jpg" alt="Evatest Classic" />
-    </div>
-    <div class="large-4 large-pull-8 columns">
-        <p class="info">Clásico test de embarazo con un 99% de exactitud.</p>
-
-        <p class="demo">
-            <?php $upload_dir = wp_upload_dir(); ?>
-            <a href="/Evatest_Classic/" class="fancybox fancybox.iframe view-demo" title="Evatest Classic - Demo">Demo</a>
-            <a href="<?php echo $upload_dir['baseurl']; ?>/manual/Evatest-Classic.pdf" class="download" target="_blank">Descarga el manual</a>
-        </p>
+<div class="product product--intro">
+    <div class="row">
+        <div class="small-12 medium-7 medium-push-5 columns">
+            <img src="<?php echo get_stylesheet_directory_uri() ?>/images/linea-evatest/linea-evatest-tradicional.jpg" alt="Evatest Classic" />
+        </div>
+        <div class="small-12 medium-5 medium-pull-7 columns">
+            <h4 class="product__title">Evatest Classic</h4>
+            <p class="product__description">Clásico test de embarazo con un 99% de exactitud.</p>
+            <a href="/evatest-classic/" title="Ver Demo" class="fancybox fancybox.iframe view-demo button button--demo"><i class="fa fa-video-camera"></i> <br> Demo</a>
+            <a href="<?php echo $upload_dir['baseurl']; ?>/manual/Evatest-Classic.pdf" title="Descargá el Manual" class="button button--more" target="_blank">Manual <i class="fa fa-file-pdf-o"></i></a>
+        </div>
     </div>
 </div>

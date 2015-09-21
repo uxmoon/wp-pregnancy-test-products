@@ -2,182 +2,194 @@
 /*
 Template Name: Front page
 */
-?>
-<?php get_header(); ?>
+get_header(); ?>
+
 
     <div class="row">
-        <div class="small-12 large-12 columns">
-            <ul class="slider-home">
+        <div class="small-12 columns slider-home-container">
+            <div class="slider-home">
                 <?php
                     $temp     = $wp_query;
                     $wp_query = null;
                     $wp_query = new WP_Query();
                     $wp_query->query('showposts=-1&post_type=evatest_slider');
-
                     while ($wp_query->have_posts()) : $wp_query->the_post();
                 ?>
 
+                <div class="slider-home__item">
+                    <a href="<?php echo rwmb_meta( 'elea_url' ); ?>" title="<?php the_title(); ?>">
+                        <?php
+                            $images        = rwmb_meta( 'elea_img_slide', 'type=image' );
+                            $images_mobile = rwmb_meta( 'elea_img_slide_mobile', 'type=image' );
 
-                <?php
-                    $images = rwmb_meta( 'elea_img_slide', 'type=image' );
-
-                    foreach ( $images as $image ) {
-                        echo "<li><a href=\"";
-                        echo esc_url( home_url() );
-                        echo rwmb_meta( 'elea_url' );
-                        echo "\"><img src=\"{$image['full_url']}\" alt=\"";
-                        echo the_title();
-                        echo "\" title=\"";
-                        echo the_title();
-                        echo "\"></a></li> ";
-                    }
-                ?>
+                            echo "<img data-interchange=\"[";
+                            foreach ( $images_mobile as $image_mobile ) {
+                                echo "{$image_mobile['full_url']}";
+                            }
+                            echo ", (default)], [";
+                            foreach ( $images as $image ) {
+                                echo "{$image['full_url']}";
+                            }
+                            echo ", (large)]\">";
+                        ?>
+                    </a>
+                </div>
 
                 <?php
                     endwhile;
                     $wp_query = null;
                     $wp_query = $temp;  // Reset
                 ?>
+            </div>
+        </div>
+    </div>
 
+    <h2 class="title--home-services">Conocé todo lo que evatest tiene para ofrecerte</h2>
+    <div class="row">
+        <div class="small-12 columns">
+            <ul class="small-block-grid-1 medium-block-grid-2 large-block-grid-3">
+                <li>
+                    <div class="service">
+                        <a href="<?php echo ot_get_option('destacado_1_vinculo'); ?>">
+                            <figure class="service__thumbnail">
+                                <img src="<?php echo ot_get_option('destacado_1_imagen'); ?>" alt="<?php echo ot_get_option('destacado_1'); ?>">
+                                <figcaption>
+                                    <span title="Ver Más" class="button button--more">Ver más <i class="fa fa-angle-right"></i></span>
+                                </figcaption>
+                            </figure>
+                            <h2 class="service__title"><?php echo ot_get_option('destacado_1'); ?></h2>
+                        </a>
+                    </div>
+                </li>
+                <li>
+                    <!-- component: calculator -->
+                    <div class="calculator">
+                        <div class="calculator__content">
+
+                            <!-- calculator results -->
+                            <div id="js-calculator-content" style="display:none;" class="calculator__results">
+                                <a href="javascript: return false;" onclick="mensajeHide();">
+                                    <div class="content">
+                                        <i class="fa fa-close"></i>
+                                        <div id="js-calculator-text" class="calculator__message"></div>
+                                    </div>
+                                </a>
+                            </div>
+                            <!-- / calculator results -->
+
+                            <h3 class="calculator__subtitle"><span>Calculadora</span> de Ovulación</h3>
+                            <div class="calculator__fields">
+                                <input type="text" name="txt_1" class="field" id="txt_1" onkeypress="return acceptNum(event)" value="" size="2" maxlength="2">
+                                <input type="text" name="txt_2" class="field" id="txt_2" onkeypress="return acceptNum(event)" value="" size="2" maxlength="2">
+                                <input type="text" name="txt_3" class="field" id="txt_3" onkeypress="return acceptNum(event)" value="" size="2" maxlength="2">
+                            </div>
+                            <p class="calculator__instructions"><span>&lt;&lt;&lt;</span> Ingresá la cantidad de días de duración de tus últimos 3 ciclos.</p>
+                            <p class="calculator__notes">Períodos mayores a 20 días y menores a 45</p>
+                            <a href="javascript: var a = ovulacion ();" class="calculator__button button" title="Calcular">Calcular <i class="fa fa-angle-right"></i></a>
+                        </div>
+                        <h2 class="calculator__title">Probá la calculadora</h2>
+                    </div>
+                </li>
+                <li>
+                    <div class="service">
+                        <a href="<?php echo ot_get_option('destacado_2_vinculo'); ?>">
+                            <figure class="service__thumbnail">
+                                <img src="<?php echo ot_get_option('destacado_2_imagen'); ?>" alt="<?php echo ot_get_option('destacado_2'); ?>">
+                                <figcaption>
+                                    <span title="Ver Más" class="button button--more">Ver más <i class="fa fa-angle-right"></i></span>
+                                </figcaption>
+                            </figure>
+                            <h2 class="service__title"><?php echo ot_get_option('destacado_2'); ?></h2>
+                        </a>
+                    </div>
+                </li>
+                <li>
+                    <div class="service">
+                        <a href="<?php echo ot_get_option('destacado_3_vinculo'); ?>">
+                            <figure class="service__thumbnail">
+                                <img src="<?php echo ot_get_option('destacado_3_imagen'); ?>" alt="<?php echo ot_get_option('destacado_3'); ?>">
+                                <figcaption>
+                                    <span title="Ver Más" class="button button--more">Ver más <i class="fa fa-angle-right"></i></span>
+                                </figcaption>
+                            </figure>
+                            <h2 class="service__title"><?php echo ot_get_option('destacado_3'); ?></h2>
+                        </a>
+                    </div>
+                </li>
+                <li>
+                    <div class="service">
+                        <a href="<?php echo ot_get_option('destacado_4_vinculo'); ?>" target="_blank">
+                            <figure class="service__thumbnail">
+                                <img src="<?php echo ot_get_option('destacado_4_imagen'); ?>" alt="<?php echo ot_get_option('destacado_4'); ?>">
+                                <figcaption>
+                                    <span title="Ver Más" class="button button--more">Ver más <i class="fa fa-angle-right"></i></span>
+                                </figcaption>
+                            </figure>
+                            <h2 class="service__title"><?php echo ot_get_option('destacado_4'); ?></h2>
+                        </a>
+                    </div>
+                </li>
+                <li>
+                    <div class="service">
+                        <a href="<?php echo ot_get_option('destacado_5_vinculo'); ?>">
+                            <figure class="service__thumbnail">
+                                <img src="<?php echo ot_get_option('destacado_5_imagen'); ?>" alt="<?php echo ot_get_option('destacado_5'); ?>">
+                                <figcaption>
+                                    <span title="Ver Más" class="button button--more">Ver más <i class="fa fa-angle-right"></i></span>
+                                </figcaption>
+                            </figure>
+                            <h2 class="service__title"><?php echo ot_get_option('destacado_5'); ?></h2>
+                        </a>
+                    </div>
+                </li>
             </ul>
         </div>
     </div>
 
-    <section class="home-services">
+    <h3 class="title--home-products">Y vos ¿Cuál elegís?</h3>
 
-        <div id="msj" style="display:none;">
-            <div class="content">
-                <div class="arrow"></div>
-                <div id="msj_cerrar"><a href="javascript: return false;" onclick="mensajeHide();">cerrar</a></div>
-                <div id="msj_txt"></div>
-            </div>
-        </div>
+    <div class="row home-products">
 
-        <div class="row">
-            <div class="small-12 large-12 columns">
-                <h2 class="home-services__title">Conocé todo lo que evatest tiene para ofrecerte</h2>
-            </div>
-        </div>
+        <?php
+            $temp     = $wp_query;
+            $wp_query = null;
+            $wp_query = new WP_Query();
+            $wp_query->query('showposts=-1&post_type=product');
+            while ($wp_query->have_posts()) : $wp_query->the_post();
+        ?>
 
-        <div class="row">
-            <div class="small-12 medium-4 large-4 columns item">
-                <div class="thumb">
-                    <a href="<?php echo esc_url( home_url() ); ?>/consultorio-online/">
-                        <img src="<?php echo get_stylesheet_directory_uri() ?>/images/stock/stock-02.jpg" alt="Hacé tu consulta. Consultorio online.">
+            <div class="small-12 medium-4 columns">
+                <div class="product">
+                    <a href="<?php echo rwmb_meta( 'elea_url' ); ?>" title="<?php the_title(); ?>">
+                        <figure class="media">
+                        <?php
+                            $images        = rwmb_meta( 'elea_img_slide', 'type=image' );
+                            $images_mobile = rwmb_meta( 'elea_img_slide_mobile', 'type=image' );
+
+                            echo "<img data-interchange=\"[";
+                            foreach ( $images_mobile as $image_mobile ) {
+                                echo "{$image_mobile['full_url']}";
+                            }
+                            echo ", (default)], [";
+                            foreach ( $images as $image ) {
+                                echo "{$image['full_url']}";
+                            }
+                            echo ", (large)]\">";
+                        ?>
+                        </figure>
+                        <h4 class="product__title"><?php the_title(); ?></h4>
+                        <p class="product__description"><?php echo rwmb_meta('elea_product_description'); ?></p>
                     </a>
-                </div>
-                <p class="call-to-action">
-                    <a href="<?php echo esc_url( home_url() ); ?>/consultorio-online/" title="Hacé tu consulta. Consultorio Online."><strong>Hacé tu consulta</strong> Consultorio Online</a>
-                </p>
-            </div>
-            <div class="small-12 medium-4 large-4 columns item">
-                <div class="thumb">
-                    <a href="<?php echo esc_url( home_url() ); ?>/evatest-news/">
-                        <img src="<?php echo get_stylesheet_directory_uri() ?>/images/stock/stock-03.jpg" alt="Todo sobre la salud de la mujer">
-                    </a>
-                </div>
-                <p class="call-to-action">
-                    <a href="<?php echo esc_url( home_url() ); ?>/salud-femenina/" title="Todo sobre la salud de la mujer"><strong>Evatest </strong>News</a>
-                </p>
-            </div>
-            <div class="small-12 medium-4 large-4 columns item">
-
-                <div class="calculator">
-
-                    <h3 class="calculator__title">
-                        <strong>Calculadora</strong> de ovulación
-                    </h3>
-
-                    <div class="row">
-                        <div class="small-6 large-6 columns">
-                            <div class="calculator__fields">
-                                <input type="text" name="txt_1" class="field" id="txt_1" onkeypress="return acceptNum(event)" value="" size="2" maxlength="2"/>
-
-                                <input type="text" name="txt_2" class="field" id="txt_2" onkeypress="return acceptNum(event)" value="" size="2" maxlength="2"/>
-
-                                <input type="text" name="txt_3" class="field" id="txt_3" onkeypress="return acceptNum(event)" value="" size="2" maxlength="2"/>
-                            </div>
-                            <p class="calculator__note">Períodos mayores a 20 días y menores a 45</p>
-                        </div>
-                        <div class="small-6 large-6 columns">
-                            <p class="calculator__instructions">Ingresá la cantidad de días de duración de tus últimos 3 ciclos.</p>
-                        </div>
-                    </div>
-                    <a href="javascript: var a = ovulacion ();" class="calculator__button" title="Calcular">Calcular</a>
-                </div>
-
-                <p class="call-to-action"><strong>Probá la calculadora</strong> de ovulación</p>
-            </div>
-        </div>
-    </section>
-
-    <section class="home-products">
-
-        <div class="row">
-            <div class="small-12 large-12 columns">
-                <h3 class="home-products__title">Y vos ¿Cuál elegís?</h3>
-            </div>
-        </div>
-
-        <div class="row">
-
-            <!-- producto -->
-            <div class="small-12 medium-12 large-4 columns">
-                <div class="product_featured">
-                    <a href="<?php echo esc_url( home_url() ); ?>/linea-evatest/evatest-signos-plus/" title="Evatest Signos">
-                        <img src="<?php echo bloginfo('template_directory'); ?>/images/products/products-01.png" alt="Evatest Signos Plus" class="show-for-large-up">
-                        <h2 class="heading">Evatest <span>Signos Plus</span></h2>
-                    </a>
-                    <p>El test de embarazo más completo: resultado en signos, hasta 4 días antes y con un 99% de exactitud.</p>
-                    <div class="row collapse">
-                        <div class="small-6 large-6 columns">
-                            <a href="/Evatest_Signos_Plus/" class="fancybox fancybox.iframe view-demo" title="Evatest Signos Plus - Demo">Ver demo</a>
-                        </div>
-                        <div class="small-6 large-6 columns">
-                            <a href="<?php echo esc_url( home_url() ); ?>/linea-evatest/evatest-signos-plus/" title="Ver más">Ver más</a>
-                        </div>
-                    </div>
+                    <a href="<?php echo rwmb_meta( 'elea_product_demo' ) ?>" title="Ver Demo" class="fancybox fancybox.iframe button button--demo"><i class="fa fa-video-camera"></i> <br> Demo</a>
+                    <a href="<?php echo rwmb_meta( 'elea_url' ); ?>" title="Ver Más" class="button button--more">Ver más <i class="fa fa-angle-right"></i></a>
                 </div>
             </div>
+        <?php
+            endwhile;
+            $wp_query = null;
+            $wp_query = $temp;  // Reset
+        ?>
+    </div>
 
-            <!-- producto -->
-            <div class="small-12 medium-12 large-4 columns">
-                <div class="product_featured">
-                    <a href="<?php echo esc_url( home_url() ); ?>/linea-evatest/evatest-tradicional/" title="Evatest Tradicional">
-                        <img src="<?php echo bloginfo('template_directory'); ?>/images/products/products-02.png" alt="Evatest" class="show-for-large-up">
-                        <h2 class="heading">Evatest <span>Classic</span></h2>
-                    </a>
-                    <p>Clásico test de embarazo,  con un 99% de exactitud.</p>
-                    <div class="row collapse">
-                        <div class="small-6 large-6 columns">
-                            <a href="/Evatest_Classic/" title="Evatest Tradicional - Demo" class="fancybox fancybox.iframe">Demo</a>
-                        </div>
-                        <div class="small-6 large-6 columns">
-                            <a href="<?php echo esc_url( home_url() ); ?>/linea-evatest/evatest-tradicional/" title="Ver más">Ver más</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- producto -->
-            <div class="small-12 medium-12 large-4 columns">
-                <div class="product_featured">
-                    <a href="<?php echo esc_url( home_url() ); ?>/linea-evatest/evatest-easy/" title="Evatest Easy">
-                        <img src="<?php echo bloginfo('template_directory'); ?>/images/products/products-03.png" alt="" class="show-for-large-up">
-                        <h2 class="heading">Evatest Easy</h2>
-                    </a>
-                    <p>Test rápido de embarazo, fácil, práctico y sin recipientes. Con un 99% de exactitud.</p>
-                    <div class="row collapse">
-                        <div class="small-6 large-6 columns">
-                            <a href="/Evatest_Easy/" title="Evatest Easy - Demo" class="fancybox fancybox.iframe">Demo</a>
-                        </div>
-                        <div class="small-6 large-6 columns">
-                            <a href="<?php echo esc_url( home_url() ); ?>/linea-evatest/evatest-easy/" title="Ver más">Ver más</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
 <?php get_footer(); ?>

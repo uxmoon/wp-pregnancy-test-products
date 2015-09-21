@@ -53,12 +53,20 @@ Template Name: Consultorio Online - Consultas
 			query_posts( array('post_type' => 'consultas', 'category_name' => 'evatest-signos-plus',  'posts_per_page' => 3, 'paged' => $paged));
 
 		} elseif ( is_page(1308) ) {
+            // evaplan
 			// evaplan easy
-			query_posts( array('post_type' => 'consultas', 'category_name' => 'evaplan-easy',  'posts_per_page' => 3, 'paged' => $paged));
+			query_posts( array(
+                'post_type'      => 'consultas',
+                // 'category_name'  => 'evaplan',
+                // 'category_name'  => 'evaplan-easy',
+                'category_name'  => 'evaplan', 'evaplan-easy',
+                'posts_per_page' => 3,
+                'paged'          => $paged
+            ));
 
-		} elseif ( is_page(1305) ) {
+		//} elseif ( is_page(1305) ) {
 			// evaplan
-			query_posts( array('post_type' => 'consultas', 'category_name' => 'evaplan',  'posts_per_page' => 3, 'paged' => $paged));
+			//query_posts( array('post_type' => 'consultas', 'category_name' => 'evaplan',  'posts_per_page' => 3, 'paged' => $paged));
 
 		} elseif ( is_page(1312) ) {
 			// otros
