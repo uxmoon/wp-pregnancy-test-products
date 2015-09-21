@@ -1,29 +1,11 @@
-# Foundation libsass template
+# WordPress Theme for pregnancy test products
 
-This is a template to start your own project that uses Grunt and libsass!
+This is a custom WordPress theme for a laboratory company that sells pregnancy test products made with Foundation Framework for front-end development.
 
-## Requirements
+I also use Grunt to concatenate and minify the Js files.
 
-You'll need to have the following items installed before continuing.
+## Changelog
 
-  * [Node.js](http://nodejs.org): Use the installer provided on the NodeJS website.
-  * [Grunt](http://gruntjs.com/): Run `[sudo] npm install -g grunt-cli`
-  * [Bower](http://bower.io): Run `[sudo] npm install -g bower`
-
-## Quickstart
-
-```bash
-git clone git@github.com:zurb/foundation-libsass-template.git
-npm install && bower install
-```
-
-While you're working on your project, run:
-
-`grunt`
-
-And you're set!
-
-## Directory Structure
-
-  * `scss/_settings.scss`: Foundation configuration settings go in here
-  * `scss/app.scss`: Application styles go here
+  * [Fontello](http://fontello.com/): Use icon fonts instead of fontawesome.io to reduce file size
+  * Concatenate and minify Js files to reduce server calls
+  * Use CDN for jQuery and jQuery UI Files
