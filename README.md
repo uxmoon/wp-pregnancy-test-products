@@ -2,18 +2,30 @@
 
 This is a custom WordPress theme for a laboratory company that sells pregnancy test products made with Foundation Framework for front-end development.
 
-I also use Grunt to concatenate and minify the Js files.
+Website: [Evatest](http://evatest.com)
 
 ## Tools
   * [Fontello](http://fontello.com/): Use icon fonts instead of fontawesome.io to reduce file size
   * [Grunt](http://gruntjs.com/) Concatenate and minify Js files to reduce server calls. Compile Sass and livereload.
 
-## Notes
-  * Deregister jQuery and replace it with (jQuery CDN)[https://code.jquery.com/]
-  * Created Custom Post Types for patients inquiries
-  * Create a Post from a Form Submission specifically for customer questions
+## Featured
+  * Custom online Consulting Room for questions about products and medical inquiries
+  * Admin section for Consulting Room to answer customer's questions by a professional
+  * Custom Hero Slider to upload mobile and desktop images
+  * Added Google Analytics
 
-## Plugins used
+## WordPress Tweaks
+  * Deregister jQuery and replace it with [jQuery CDN](https://code.jquery.com/)
+  * Removed additional code from head section
+  * Custom Post Type for Homepage Slider to add Mobile and Desktop images
+  * Removed WP emoji code from markup
+
+## Foundation Js
+  * Foundation Tabs for baby names
+  * Foundation Off Canvas for mobile navigation
+  * Foundation Interchange for mobile images
+
+## WordPress Plugins
   * [Meta Box](https://wordpress.org/plugins/meta-box/)
   * [Contact Form 7](https://wordpress.org/plugins/contact-form-7/)
   * [Contact Form DB](https://wordpress.org/plugins/contact-form-7-to-database-extension/)
