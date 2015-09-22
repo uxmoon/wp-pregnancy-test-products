@@ -5,8 +5,9 @@ This is a custom WordPress theme for a laboratory company that sells pregnancy t
 Website: [Evatest](http://evatest.com)
 
 ## Tools
-  * [Fontello](http://fontello.com/): Use icon fonts instead of fontawesome.io to reduce file size
-  * [Grunt](http://gruntjs.com/) Concatenate and minify Js files to reduce server calls. Compile Sass and livereload.
+  * [Fontello](http://fontello.com/): Use icon fonts instead of fontawesome.io to reduce file size.
+  * [Grunt](http://gruntjs.com/): concat, uglify, spritesmith, sass and watch.
+  * [Foundation](http://foundation.zurb.com/): Front-end development Framework with Mobile First approach.
 
 ## Featured
   * Custom online Consulting Room for questions about products and medical inquiries
