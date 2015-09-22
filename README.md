@@ -14,12 +14,11 @@ I also use Grunt to concatenate and minify the Js files.
   * Create a Post from a Form Submission specifically for customer questions
 
 ## Plugins used
-  * (Meta Box)[https://wordpress.org/plugins/meta-box/]
-  * (Contact Form 7)[https://wordpress.org/plugins/contact-form-7/]
-  * (Contact Form DB)[https://wordpress.org/plugins/contact-form-7-to-database-extension/]
-  * (OptionTree)[https://wordpress.org/plugins/option-tree/]
-  * (OptionTree)[]
+  * [Meta Box](https://wordpress.org/plugins/meta-box/)
+  * [Contact Form 7](https://wordpress.org/plugins/contact-form-7/)
+  * [Contact Form DB](https://wordpress.org/plugins/contact-form-7-to-database-extension/)
+  * [OptionTree](https://wordpress.org/plugins/option-tree/)
 
 ## jQuery Plugins
-  * (Slick){http://kenwheeler.github.io/slick/} the last carousel you'll ever need
-  * (Fancybox)[http://fancyapps.com/fancybox/] soon to be replaces
+  * [Slick](http://kenwheeler.github.io/slick/) the last carousel you'll ever need
+  * [Fancybox](http://fancyapps.com/fancybox/] soon to be replace)
