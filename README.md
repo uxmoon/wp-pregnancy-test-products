@@ -14,6 +14,7 @@ Website: [Evatest](http://evatest.com)
   * Admin section for Consulting Room to answer customer's questions by a professional
   * Custom Hero Slider to upload mobile and desktop images
   * Added Google Analytics
+  * Custom Admin for WordPress user roles
 
 ## WordPress Tweaks
   * Deregister jQuery and replace it with [jQuery CDN](https://code.jquery.com/)
@@ -31,6 +32,9 @@ Website: [Evatest](http://evatest.com)
   * [Contact Form 7](https://wordpress.org/plugins/contact-form-7/)
   * [Contact Form DB](https://wordpress.org/plugins/contact-form-7-to-database-extension/)
   * [OptionTree](https://wordpress.org/plugins/option-tree/)
+  * [Custom Post Type UI](https://wordpress.org/plugins/custom-post-type-ui/)
+  * [Post Types Order](https://wordpress.org/plugins/post-types-order/)
+  * [WP Admin UI Customize](https://wordpress.org/plugins/wp-admin-ui-customize/)
 
 ## jQuery Plugins
   * [Slick](http://kenwheeler.github.io/slick/) the last carousel you'll ever need
