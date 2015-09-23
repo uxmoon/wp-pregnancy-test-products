@@ -25,27 +25,6 @@ get_header(); ?>
                         </ul>
                     </nav>
 
-<ul class="tabs" data-tab>
-  <li class="tab-title active"><a href="#name1">Tab 1</a></li>
-  <li class="tab-title"><a href="#name2">Tab 2</a></li>
-  <li class="tab-title"><a href="#name3">Tab 3</a></li>
-  <li class="tab-title"><a href="#name4">Tab 4</a></li>
-</ul>
-<div class="tabs-content">
-  <div class="content active" id="name1">
-    <p>This is the first name of the basic tab example. You can place all sorts of content here including a grid.</p>
-  </div>
-  <div class="content" id="name2">
-    <p>This is the second name of the basic tab example. This is the second name of the basic tab example.</p>
-  </div>
-  <div class="content" id="name3">
-    <p>This is the third name of the basic tab example. This is the third name of the basic tab example.</p>
-  </div>
-  <div class="content" id="name4">
-    <p>This is the fourth name of the basic tab example. This is the fourth name of the basic tab example.</p>
-  </div>
-</div>
-
                     <div class="ev-names">
                         <ul class="tabs" data-tab>
                             <li class="tab-title active"><a href="#panel1">A</a></li>
