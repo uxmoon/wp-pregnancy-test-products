@@ -25,21 +25,24 @@ function evatest_scripts() {
     wp_enqueue_script( 'evatheme-modernizr', 'https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js', array(), '1', false );
 
     // jQuery UI for online consulting room
-    wp_enqueue_script( 'evatheme-jquery-ui', 'http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.13/jquery-ui.min.js', array('jquery'), '1.8.13', true );
+    if ( is_page( 'consultorio-online' ) ){
+        wp_enqueue_script( 'evatheme-jquery-ui', 'http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.13/jquery-ui.min.js', array('jquery'), '1.8.13', true );
+        wp_enqueue_script( 'evatheme-consulting-room', get_template_directory_uri() . '/js/elea-consulting-room.min.js', array('jquery'), '1', true );
+    }
 
-    // optimized foundation tab, offcanvas and interchange, slick and fancybox
-    //wp_enqueue_script( 'evatheme-app', get_template_directory_uri() . '/js/evatest.min.js', array('jquery'), '1', true );
+    // optimized foundation tab, offcanvas, reveal and interchange and slick
+    wp_enqueue_script( 'evatheme-app', get_template_directory_uri() . '/js/evatest.min.js', array('jquery'), '1', true );
 
-    wp_enqueue_script( 'evatheme-foundation', get_template_directory_uri() . '/js/foundation/foundation.js', array('jquery'), '1', true );
+    // wp_enqueue_script( 'evatheme-foundation', get_template_directory_uri() . '/js/foundation/foundation.js', array('jquery'), '1', true );
 
-    wp_enqueue_script( 'evatheme-interchange', get_template_directory_uri() . '/js/foundation/foundation.interchange.js', array('jquery'), '1', true );
-    wp_enqueue_script( 'evatheme-tabs', get_template_directory_uri() . '/js/foundation/foundation.tab.js', array('jquery'), '1', true );
-    wp_enqueue_script( 'evatheme-reveal', get_template_directory_uri() . '/js/foundation/foundation.reveal.js', array('jquery'), '1', true );
-    wp_enqueue_script( 'evatheme-offcanvas', get_template_directory_uri() . '/js/foundation/foundation.offcanvas.js', array('jquery'), '1', true );
+    // wp_enqueue_script( 'evatheme-interchange', get_template_directory_uri() . '/js/foundation/foundation.interchange.js', array('jquery'), '1', true );
+    // wp_enqueue_script( 'evatheme-tabs', get_template_directory_uri() . '/js/foundation/foundation.tab.js', array('jquery'), '1', true );
+    // wp_enqueue_script( 'evatheme-reveal', get_template_directory_uri() . '/js/foundation/foundation.reveal.js', array('jquery'), '1', true );
+    // wp_enqueue_script( 'evatheme-offcanvas', get_template_directory_uri() . '/js/foundation/foundation.offcanvas.js', array('jquery'), '1', true );
 
-    wp_enqueue_script( 'evatheme-slick', get_template_directory_uri() . '/js/slick.js', array('jquery'), '1', true );
+    // wp_enqueue_script( 'evatheme-slick', get_template_directory_uri() . '/js/slick.js', array('jquery'), '1', true );
 
-    wp_enqueue_script( 'evatheme-app', get_template_directory_uri() . '/js/app.js', array('jquery'), '1', true );
+    // wp_enqueue_script( 'evatheme-app', get_template_directory_uri() . '/js/app.js', array('jquery'), '1', true );
 
     // youtube player api
     // if ( is_front_page() || is_home() ) {
@@ -47,7 +50,7 @@ function evatest_scripts() {
     // }
 
     if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
-    wp_enqueue_script( 'comment-reply' );
+        wp_enqueue_script( 'comment-reply' );
     }
 }
 
@@ -292,15 +295,3 @@ add_filter('wpcf7_ajax_loader', 'my_wpcf7_ajax_loader');
 function my_wpcf7_ajax_loader () {
     return  get_bloginfo('stylesheet_directory') . '/images/preloader.gif';
 }
-
-
-// Media element load css only on modal pages
-// - - - - - - - - - - - - - - - - - - - - - - - - -
-
-// function theme_name_scripts() {
-// if ( !is_admin() && is_page(array(6109,6138,6142,7216,13642)) ) {
-//     wp_enqueue_style( 'mediaelement-css', get_stylesheet_directory_uri() . '/css/mediaelement/mediaelementplayer.css', array(), '', 'all' );
-//     wp_enqueue_style( 'mediaelement-skin-css', get_stylesheet_directory_uri() . '/css/mediaelement/mejs-skins.css', array(), '', 'all' );
-//   }
-// }
-// add_action( 'wp_enqueue_scripts', 'theme_name_scripts' );

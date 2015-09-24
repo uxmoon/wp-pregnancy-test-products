@@ -48,10 +48,6 @@
                 </div>
 
                 <aside class="left-off-canvas-menu">
-                    <h1><a href="/"><?php bloginfo('name'); ?></a></h1>
-                    <p>
-                        <a class="exit-off-canvas">Cerrar menú</a>
-                    </p>
                     <?php wp_nav_menu(
                         array(
                             'menu'      => 'mobile',
