@@ -28,7 +28,18 @@ function evatest_scripts() {
     wp_enqueue_script( 'evatheme-jquery-ui', 'http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.13/jquery-ui.min.js', array('jquery'), '1.8.13', true );
 
     // optimized foundation tab, offcanvas and interchange, slick and fancybox
-    wp_enqueue_script( 'evatheme-app', get_template_directory_uri() . '/js/evatest.min.js', array('jquery'), '1', true );
+    //wp_enqueue_script( 'evatheme-app', get_template_directory_uri() . '/js/evatest.min.js', array('jquery'), '1', true );
+
+    wp_enqueue_script( 'evatheme-foundation', get_template_directory_uri() . '/js/foundation/foundation.js', array('jquery'), '1', true );
+
+    wp_enqueue_script( 'evatheme-interchange', get_template_directory_uri() . '/js/foundation/foundation.interchange.js', array('jquery'), '1', true );
+    wp_enqueue_script( 'evatheme-tabs', get_template_directory_uri() . '/js/foundation/foundation.tab.js', array('jquery'), '1', true );
+    wp_enqueue_script( 'evatheme-reveal', get_template_directory_uri() . '/js/foundation/foundation.reveal.js', array('jquery'), '1', true );
+    wp_enqueue_script( 'evatheme-offcanvas', get_template_directory_uri() . '/js/foundation/foundation.offcanvas.js', array('jquery'), '1', true );
+
+    wp_enqueue_script( 'evatheme-slick', get_template_directory_uri() . '/js/slick.js', array('jquery'), '1', true );
+
+    wp_enqueue_script( 'evatheme-app', get_template_directory_uri() . '/js/app.js', array('jquery'), '1', true );
 
     // youtube player api
     // if ( is_front_page() || is_home() ) {

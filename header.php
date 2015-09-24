@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html <?php language_attributes(); ?>>
+<html class="no-js" <?php language_attributes(); ?>>
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <title><?php wp_title(); ?></title>
     <link rel="shortcut icon" href="http://www.evatest.com/favicon.ico" type="image/x-icon">
+    <meta name="theme-color" content="#D82F8B">
     <?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>

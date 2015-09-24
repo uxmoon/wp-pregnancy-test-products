@@ -90,13 +90,22 @@ function elea_register_meta_boxes( $meta_boxes )
                 'std'   => __( '', 'your-prefix' ),
                 'clone' => false,
             ),
+            // array(
+            //     'name'  => __( 'Demo', 'meta-box' ),
+            //     'id'    => "{$prefix}product_demo",
+            //     'desc'  => __( 'Vínculo a la página que contiene el vídeo ej. /evatest_signos_plus/', 'meta-box' ),
+            //     'type'  => 'text',
+            //     'std'   => __( '', 'meta-box' ),
+            //     'clone' => false,
+            // ),
+
+            // URL
             array(
-                'name'  => __( 'Demo', 'meta-box' ),
-                'id'    => "{$prefix}product_demo",
-                'desc'  => __( 'Vínculo a la página que contiene el vídeo ej. /evatest_signos_plus/', 'meta-box' ),
-                'type'  => 'text',
-                'std'   => __( '', 'meta-box' ),
-                'clone' => false,
+                'name' => __( 'URL YouTube', 'meta-box' ),
+                'id'   => "{$prefix}url_youtube",
+                'desc' => __( '', 'meta-box' ),
+                'type' => 'url',
+                'std'  => '',
             ),
         )
     );

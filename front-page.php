@@ -180,9 +180,18 @@ get_header(); ?>
                         <h4 class="product__title"><?php the_title(); ?></h4>
                         <p class="product__description"><?php echo rwmb_meta('elea_product_description'); ?></p>
                     </a>
-                    <a href="<?php echo rwmb_meta( 'elea_product_demo' ) ?>" title="Ver Demo" class="fancybox fancybox.iframe button button--demo"><i class="fa fa-video-camera"></i> <br> Demo</a>
+                    <a href="#" title="Ver Demo" class="button button--demo" data-reveal-id="videoModal-<?php echo $post->ID ?>"><i class="fa fa-video-camera"></i> <br> Demo </a>
                     <a href="<?php echo rwmb_meta( 'elea_url' ); ?>" title="Ver Más" class="button button--more">Ver más <i class="fa fa-angle-right"></i></a>
                 </div>
+
+                <div id="videoModal-<?php echo $post->ID ?>" class="reveal-modal large" data-reveal aria-labelledby="videoModalTitle" aria-hidden="true" role="dialog">
+                    <h2 id="videoModalTitle" class="reveal-modal__title"><?php the_title(); ?></h2>
+                    <div class="video-container">
+                        <iframe width="560" height="315" src="<?php echo rwmb_meta( 'elea_url_youtube' ) ?>" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                    <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+                </div>
+
             </div>
         <?php
             endwhile;
