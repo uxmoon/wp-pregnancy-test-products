@@ -4,6 +4,13 @@ This is a custom WordPress theme for a laboratory company that sells pregnancy t
 
 Website: [Evatest](http://evatest.com)
 
+# Changelog
+
+## 09/24/2015
+  * Removed fancybox and replaced by Foundation Reveal
+  * Added YouTube videos for product demo
+  * Added new meta box field for YouTube videos embed link
+
 ## Tools
   * [Fontello](http://fontello.com/): Use icon fonts instead of fontawesome.io to reduce file size.
   * [Grunt](http://gruntjs.com/): concat, uglify, spritesmith, sass and watch.
@@ -15,6 +22,7 @@ Website: [Evatest](http://evatest.com)
   * Custom Hero Slider to upload mobile and desktop images
   * Added Google Analytics
   * Custom Admin for WordPress user roles
+  * Ovulation calculator
 
 ## WordPress Tweaks
   * Deregister jQuery and replace it with [jQuery CDN](https://code.jquery.com/)
@@ -26,6 +34,7 @@ Website: [Evatest](http://evatest.com)
   * Foundation Tabs for baby names
   * Foundation Off Canvas for mobile navigation
   * Foundation Interchange for mobile images
+  * Foundation Reveal for video demos
 
 ## WordPress Plugins
   * [Meta Box](https://wordpress.org/plugins/meta-box/)
@@ -38,4 +47,3 @@ Website: [Evatest](http://evatest.com)
 
 ## jQuery Plugins
   * [Slick](http://kenwheeler.github.io/slick/) the last carousel you'll ever need
-  * [Fancybox](http://fancyapps.com/fancybox/] soon to be replace)
